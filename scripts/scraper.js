@@ -1,38 +1,39 @@
 const axios = require('axios');
-const cheerio = require('cheerio');
 const fs = require('fs');
 const path = require('path');
+const cheerio = require('cheerio');
 
-async function scrapeSkills() {
+(async () => {
   const url = 'https://tinkererway.dev/web_skill_trees/electronics_skill_tree';
-  
+  const outputFile = path.join(path.dirname(process.argv[1]), '../public/electronics/skills.json');
+
   try {
-    // Solicitud HTTP a la página
-    const { data } = await axios.get(url);
-    const $ = cheerio.load(data);  // Cargar el HTML en cheerio
+    const response = await axios.get(url);
+    const $ = cheerio.load(response.data);
+
     const skills = [];
 
-    // Seleccionar cada elemento .svg-wrapper en el árbol de habilidades
-    $('.svg-wrapper').each((i, el) => {
-      const id = $(el).attr('data-id');  // Obtener el ID de cada wrapper
-      const icon = `/electronics/icons/icon${id}.svg`; // Ruta de icono
-      
-      // Empujar el objeto de habilidad en el array de skills
-      skills.push({ id, icon, text: `Skill ${id}`, description: `Descripción para el skill ${id}` });
+    $('.svg-wrapper').each((_, element) => {
+        const id = parseInt($(element).attr('data-id'), 10); // Extract ID
+      const text = $(element)
+          .find('text tspan')
+          .map((_, tspan) => $(tspan).text().trim())
+          .get()
+          .join('\n\n\n'); // Combine text with the specified line breaks
+      const icon = $(element).find('image').attr('href'); // Extract icon path
+
+      // Push the extracted data into the skills array
+      skills.push({
+        id,
+        text,
+        icon: icon,
+      });
     });
 
-    // Asegurarse de que la carpeta 'public/electronics' exista
-    const electronicsDir = path.join(__dirname, '../public/electronics');
-    if (!fs.existsSync(electronicsDir)) {
-      fs.mkdirSync(electronicsDir, { recursive: true });
-    }
-
-    // Guardar los datos en skills.json
-    fs.writeFileSync(path.join(electronicsDir, 'skills.json'), JSON.stringify(skills, null, 2));
-    console.log('Skills guardados en skills.json');
+    // Save the result as a JSON file
+    fs.writeFileSync(outputFile, JSON.stringify(skills, null, 2), 'utf-8');
+    console.log('Data extracted and saved to skills.json');
   } catch (error) {
     console.error('Error al obtener los datos:', error.message);
   }
-}
-
-scrapeSkills().catch(console.error);
+})();
