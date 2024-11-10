@@ -1,0 +1,67 @@
+/* Estilo general para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina los espacios entre las celdas */
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para la tabla */
+}
+
+/* Estilo para los encabezados */
+th {
+    background-color: #f0f0f0;
+    padding: 15px 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    backdrop-filter: blur(5px); /* Efecto de desenfoque en el encabezado */
+    border-bottom: 2px solid #ddd; /* Línea inferior en los encabezados */
+    border-right: 1px solid #ddd; /* Línea derecha en los encabezados */
+}
+
+/* Estilo para las celdas de la tabla */
+td {
+    padding: 12px 20px; /* Espaciado más amplio entre las celdas */
+    text-align: center;
+    border: 1px solid #ddd; /* Borde entre filas y columnas */
+}
+
+/* Aseguramos que las imágenes tengan un tamaño adecuado */
+img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Filas alternadas con color diferente para mejorar la legibilidad */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Efecto hover para las filas de la tabla */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Añadimos un estilo para las celdas específicas */
+.rango-cell {
+    font-weight: bold;
+}
+
+.badge-cell {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.bitpoints-cell {
+    font-style: italic;
+}
+
+/* Añadimos un borde inferior a las filas */
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Ajustamos la separación entre las columnas */
+td, th {
+    padding-left: 15px;
+    padding-right: 15px;
+}
