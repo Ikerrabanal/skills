@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles de la Competencia</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/competencia.js" defer></script>
+</head>
+<body>
+<h1 id="competencia-title"></h1>
+<div id="competencia-info">
+  <img id="competencia-icon" alt="Icono de la competencia">
+  <p id="competencia-description"></p>
+
+  <h2>Tareas</h2>
+  <ul id="tareas-list"></ul>
+
+  <h2>Recursos</h2>
+  <ul id="recursos-list"></ul>
+</div>
+
+<!-- Formulario de evidencia que aparecerá al completar las tareas -->
+<form id="evidence-form" style="display: none;">
+  <label for="evidence-url">URL de evidencia:</label>
+  <input type="url" id="evidence-url" placeholder="http://tuevidencia.com" required>
+  <button type="submit">Submit Evidence</button>
+</form>
+
+<!-- Elemento para la animación de confeti -->
+<canvas id="confetti-canvas"></canvas>
+</body>
+</html>

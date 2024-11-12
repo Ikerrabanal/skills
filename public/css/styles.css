@@ -79,8 +79,33 @@ h1 {
 .svg-wrapper {
   width: 100px;
   height: 100px;
+  transition: transform 0.3s ease;
   cursor: pointer;
   position: relative;
+}
+
+.svg-wrapper:hover {
+  transform: scale(1.2); /* Aumenta el tamaño en un 20% */
+}
+
+.icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 10px;
+  opacity: 0; /* Ocultar iconos por defecto */
+  transition: opacity 0.3s ease;
+}
+
+.svg-wrapper:hover .icons {
+  opacity: 1; /* Mostrar iconos en hover */
+}
+
+.icon {
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 .hexagon {
@@ -115,3 +140,49 @@ footer {
   background-color: #f0f0f0; /* Light background color */
   border-top: 1px solid #ccc; /* Border on top */
 }
+
+
+/* Estilos específicos para competencia.html */
+
+#competencia-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#competencia-info img {
+  max-width: 80px;
+  margin: 10px 0;
+}
+
+#tareas-list, #recursos-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto; /* Centrar las listas */
+}
+
+#tareas-list li, #recursos-list li {
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#evidence-form {
+  margin-top: 20px;
+  display: none; /* Oculto por defecto, se mostrará al completar todas las tareas */
+  text-align: center;
+}
+
+#confetti-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Evita que interfiera con otros elementos */
+  z-index: 1000; /* Por encima de otros elementos */
+}
+

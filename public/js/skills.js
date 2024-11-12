@@ -12,19 +12,28 @@ window.onload = async function () {
 
         // Crear el SVG
         const svg = `
-    <svg width="100" height="100" viewBox="0 0 100 100">
-      <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" class="hexagon" />
-      <text x="50%" y="20%" text-anchor="middle" fill="black" font-size="10">
-        ${skill.text.split('\n\n\n').map(line => `<tspan x="50%" dy="1.2em" font-weight="bold">${line}</tspan>`).join('')}
-      </text>
-      <image x="35%" y="60%" width="30" height="30" href="./electronics/icons/icon${skill.id}.svg" />
-    </svg>
-  `;
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" class="hexagon" />
+          <text x="50%" y="20%" text-anchor="middle" fill="black" font-size="10">
+            ${skill.text.split('\n\n\n').map(line => `<tspan x="50%" dy="1.2em" font-weight="bold">${line}</tspan>`).join('')}
+          </text>
+          <image x="35%" y="60%" width="30" height="30" href="./electronics/icons/icon${skill.id}.svg" />
+        </svg>
+        <!-- Iconos de lápiz y cuaderno -->
+        <div class="icons">
+            <span class="icon pencil" title="Editar">✏️</span>
+            <span class="icon notebook" title="Ver Competencia">📓</span>
+        </div>
+        `;
 
         // Insertar el SVG en el wrapper
         wrapper.innerHTML = svg;
 
         // Agregar el wrapper al contenedor
         container.appendChild(wrapper);
+
+        wrapper.querySelector('.notebook').addEventListener('click', () => {
+            window.location.href = `/competencia.html?id=${skill.id}`; // Pasar el ID en la URL
+        });
     });
 };
