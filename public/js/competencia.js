@@ -41,14 +41,26 @@ window.onload = async function () {
         if (allCompleted) {
             document.getElementById('evidence-form').style.display = 'block';
             launchConfetti();
+        } else {
+            document.getElementById('evidence-form').style.display = 'none';
         }
     }
 
     // Función para la animación de confeti
     function launchConfetti() {
         const confettiCanvas = document.getElementById('confetti-canvas');
-        const confetti = confettiCanvas.getContext('2d');
-        // Implementa la animación de confeti con una librería de tu elección o un código simple de confeti
+
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+
+        confetti({
+            particleCount: 200,
+            angle: 90,
+            spread: 360,
+            origin: { x: 0.5, y: 0.5 },
+            colors: ['#ffffff', '#dd2222', '#2c7714'],
+            scalar: 1.2
+        });
     }
 
     document.getElementById('submit_button').addEventListener('click', submitted)

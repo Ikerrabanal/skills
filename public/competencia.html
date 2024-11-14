@@ -6,6 +6,8 @@
   <title>Detalles de la Competencia</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/competencia.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
 </head>
 <body>
 <h1 id="competencia-title"></h1>
@@ -13,7 +15,7 @@
   <img id="competencia-icon" alt="Icono de la competencia">
   <p id="competencia-description"></p>
 
-  <h2>Tareas</h2>
+  <h2>Tasks to complete</h2>
   <ul id="tareas-list"></ul>
 
   <!-- Formulario de evidencia que aparecerá al completar las tareas -->
@@ -24,11 +26,40 @@
     <div id="success-message">¡Evidencia enviada correctamente!</div>
   </div>
 
-  <h2>Recursos</h2>
+  <h2>Resources</h2>
   <ul id="recursos-list"></ul>
 </div>
 
 <!-- Elemento para la animación de confeti -->
 <canvas id="confetti-canvas"></canvas>
+<div style="text-align: center;">
+  <h2 >Unverified Evidence Submissions</h2>
+  <table id="table-evidences">
+    <thead>
+    <tr>
+      <th>User</th>
+      <th>Evidence</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Ana</td>
+      <td>25</td>
+      <td>España</td>
+    </tr>
+    <tr>
+      <td>Juan</td>
+      <td>30</td>
+      <td>Argentina</td>
+    </tr>
+    <tr>
+      <td>Maria</td>
+      <td>22</td>
+      <td>Colombia</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 </body>
 </html>

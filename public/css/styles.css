@@ -103,12 +103,6 @@ h1 {
   opacity: 1; /* Mostrar iconos en hover */
 }
 
-.svg-wrapper:hover #description-message {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
 .icon {
   font-size: 1.5em;
   cursor: pointer;
@@ -249,21 +243,46 @@ footer {
 }
 
 #description-message{
-  visibility: visible;
+  visibility: hidden; /* Inicialmente oculto */
   opacity: 0;
-  background-color: #afa74c;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 16px;
-  text-align: center;
-  width: 100%;
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  box-sizing: border-box;
-  border: 1px solid #000000;
-  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
-  margin-bottom: 100px;
+  background-color: #afa24c; /* Color de fondo */
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease;
+  margin-bottom: 20px; /* Espacio desde la parte inferior */
+  text-align: center;
+}
+
+#description-message.show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Estilos generales para la tabla */
+#table-evidences {
+  width: 50%;
+  border-collapse: collapse; /* Para evitar los bordes dobles */
+  font-family: Arial, sans-serif; /* Tipografía */
+  margin: 0 auto;
+}
+
+/* Estilo para las celdas de la tabla */
+#table-evidences th, td {
+  border: 1px solid #ddd; /* Borde gris claro */
+  padding: 8px 12px; /* Espaciado interno */
+  text-align: left; /* Alineación de texto */
+}
+
+/* Estilo para los encabezados de la tabla */
+#table-evidences th {
+  background-color: #4CAF50; /* Fondo verde */
+  color: white; /* Texto blanco */
+  font-weight: bold; /* Negrita */
 }

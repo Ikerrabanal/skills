@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Empezado el ejercicio 4">
+    <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Competencia y mensaje de descripcion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/competencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/competencia.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/electronics/skills_prueba.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/electronics/skills_prueba.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/competencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/competencia.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/skills.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/skills.js" afterDir="false" />
     </list>
@@ -27,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -56,7 +59,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Diego",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ehu/IdeaProjects/skills/public/electronics",
     "node.js.detected.package.eslint": "true",
@@ -226,7 +229,7 @@
       <workItem from="1731317284121" duration="537000" />
       <workItem from="1731318536242" duration="4772000" />
       <workItem from="1731410570785" duration="334000" />
-      <workItem from="1731595466327" duration="3604000" />
+      <workItem from="1731595466327" duration="7093000" />
     </task>
     <task id="LOCAL-00001" summary="Empezado el ejercicio 4">
       <option name="closed" value="true" />
@@ -236,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731595842804</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Competencia y mensaje de descripcion">
+      <option name="closed" value="true" />
+      <created>1731599226211</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731599226211</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +256,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="Empezado el ejercicio 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Empezado el ejercicio 4" />
+    <MESSAGE value="Competencia y mensaje de descripcion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Competencia y mensaje de descripcion" />
   </component>
 </project>
