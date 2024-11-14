@@ -16,16 +16,17 @@
   <h2>Tareas</h2>
   <ul id="tareas-list"></ul>
 
+  <!-- Formulario de evidencia que aparecerá al completar las tareas -->
+  <div id="evidence-form" style="display: none;">
+    <h2>Provided evidences</h2>
+    <input type="url" id="submit_content" placeholder="Enter a URL, explanation or evidence for this skill." required>
+    <button id="submit_button"> Submit Evidence</button>
+    <div id="success-message">¡Evidencia enviada correctamente!</div>
+  </div>
+
   <h2>Recursos</h2>
   <ul id="recursos-list"></ul>
 </div>
-
-<!-- Formulario de evidencia que aparecerá al completar las tareas -->
-<form id="evidence-form" style="display: none;">
-  <label for="evidence-url">URL de evidencia:</label>
-  <input type="url" id="evidence-url" placeholder="http://tuevidencia.com" required>
-  <button type="submit">Submit Evidence</button>
-</form>
 
 <!-- Elemento para la animación de confeti -->
 <canvas id="confetti-canvas"></canvas>

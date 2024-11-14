@@ -2,7 +2,17 @@
   {
     "id": 1,
     "text": "Light up an\n\n\nLED for the first\n\n\ntime",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon1.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon1.svg",
+    "title": "Light up an LED for the first time",
+    "description": "This is the example description for this skill.",
+    "tasks": [
+      "Task 1: This is the first task.",
+      "Task 2: This is the second task."
+    ],
+    "resources": [
+      "Resource 1: This is the first resource",
+      "Resource 2: This is the second resource"
+    ]
   },
   {
     "id": 2,

@@ -9,6 +9,7 @@ window.onload = async function () {
         const wrapper = document.createElement('div');
         wrapper.classList.add('svg-wrapper');
         wrapper.setAttribute('data-id', skill.id);
+        wrapper.setAttribute('tabindex', '0');
 
         // Crear el SVG
         const svg = `
@@ -24,6 +25,8 @@ window.onload = async function () {
             <span class="icon pencil" title="Editar">✏️</span>
             <span class="icon notebook" title="Ver Competencia">📓</span>
         </div>
+        <!-- Mensaje de descripción -->
+        <div id="description-message">hello</div>
         `;
 
         // Insertar el SVG en el wrapper
@@ -35,5 +38,17 @@ window.onload = async function () {
         wrapper.querySelector('.notebook').addEventListener('click', () => {
             window.location.href = `/competencia.html?id=${skill.id}`; // Pasar el ID en la URL
         });
+
+        let message = document.getElementById('description-message')
+
+        wrapper.addEventListener('focus', function() {
+            message.classList.add('show');
+            message.textContent = skill.description;
+        });
+
+        wrapper.addEventListener('blur', function() {
+            message.classList.remove('show');
+        });
+
     });
 };

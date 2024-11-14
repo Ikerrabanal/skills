@@ -4,7 +4,7 @@ window.onload = async function () {
     const competenciaId = urlParams.get('id');
 
     // Cargar los detalles de las competencias
-    const response = await fetch('../electronics/skills.json');
+    const response = await fetch('../electronics/skills_prueba.json');
     const skills = await response.json();
     const competencia = skills.find(skill => skill.id == competenciaId);
 
@@ -15,7 +15,7 @@ window.onload = async function () {
 
     // Renderizar las tareas
     const tareasList = document.getElementById('tareas-list');
-    competencia.tareas.forEach(tarea => {
+    competencia.tasks.forEach(tarea => {
         const tareaItem = document.createElement('li');
         tareaItem.innerHTML = `
             <input type="checkbox" class="tarea-checkbox">
@@ -26,9 +26,9 @@ window.onload = async function () {
 
     // Renderizar los recursos
     const recursosList = document.getElementById('recursos-list');
-    competencia.recursos.forEach(recurso => {
+    competencia.resources.forEach(recurso => {
         const recursoItem = document.createElement('li');
-        recursoItem.innerHTML = `<a href="${recurso.url}" target="_blank">${recurso.nombre}</a>`;
+        recursoItem.innerHTML = `◉ ${recurso}`;
         recursosList.appendChild(recursoItem);
     });
 
@@ -49,5 +49,23 @@ window.onload = async function () {
         const confettiCanvas = document.getElementById('confetti-canvas');
         const confetti = confettiCanvas.getContext('2d');
         // Implementa la animación de confeti con una librería de tu elección o un código simple de confeti
+    }
+
+    document.getElementById('submit_button').addEventListener('click', submitted)
+
+    function submitted() {
+        var inputValue = document.getElementById('submit_content').value;
+
+        if (inputValue.trim() !== '') {
+            var successMessage = document.getElementById('success-message');
+            successMessage.classList.add('show');
+            document.getElementById('submit_content').value = '';
+
+            setTimeout(function() {
+                successMessage.classList.remove('show');
+            }, 3000);
+        } else {
+            alert('Por favor, ingresa una URL, explicación o evidencia válida.');
+        }
     }
 };

@@ -103,6 +103,12 @@ h1 {
   opacity: 1; /* Mostrar iconos en hover */
 }
 
+.svg-wrapper:hover #description-message {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
 .icon {
   font-size: 1.5em;
   cursor: pointer;
@@ -176,6 +182,33 @@ footer {
   text-align: center;
 }
 
+#evidence-form input {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 600px; /* Máximo ancho para evitar que se estire demasiado en pantallas grandes */
+  padding: 12px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de la fuente */
+  border: 2px solid #4c9baf; /* Borde verde */
+  border-radius: 8px; /* Bordes redondeados */
+  margin: 10px 0; /* Espacio arriba y abajo del input */
+  box-sizing: border-box; /* Asegura que el padding y border se incluyan en el tamaño total */
+}
+
+#evidence-form button{
+  display: block;
+  background-color: #4c9baf; /* Verde */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado dentro del botón */
+  border: none; /* Sin borde */
+  border-radius: 12px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  font-size: 16px; /* Tamaño de la fuente */
+  margin: 20px auto;
+}
+
+#evidence-form button:hover {
+  background-color: #4588a0; /* Cambio de color al pasar el mouse */
+}
+
 #confetti-canvas {
   position: absolute;
   top: 0;
@@ -186,3 +219,51 @@ footer {
   z-index: 1000; /* Por encima de otros elementos */
 }
 
+/* Estilo para el mensaje de éxito */
+#success-message {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  border: 1px solid #4CAF50;
+  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+  margin-bottom: 100px;
+}
+
+/* Estilo cuando el mensaje está visible */
+#success-message.show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#description-message{
+  visibility: visible;
+  opacity: 0;
+  background-color: #afa74c;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+  margin-bottom: 100px;
+}
