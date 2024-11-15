@@ -48,5 +48,68 @@ window.onload = async function () {
         wrapper.querySelector('.notebook').addEventListener('click', () => {
             window.location.href = `/competencia.html?id=${skill.id}`; // Pasar el ID en la URL
         });
+
+        //como aun no hay autentificacion, ponemos de primeras que ninguna está completada
+
+        let cs = localStorage.getItem('competence_state');
+        if (cs == null){
+            console.log('nuevo')
+            cs = [{skill: skill.id, state: "uncompleted"}];
+            localStorage.setItem('competence_state', JSON.stringify(cs));
+        } else {
+            cs = JSON.parse(cs)
+            cs_skill = cs.filter(competence => competence.skill == skill.id);
+            if (cs_skill.length == 0){
+                cs.push({skill: skill.id, state: "uncompleted"})
+                localStorage.setItem('competence_state', JSON.stringify(cs));
+            }
+        }
+
+        //actualizamos circulos
+
+        const green_circle = document.createElement('div');
+        green_circle.classList.add('green-circle');
+        green_circle.id = `green-circle${skill.id}`
+
+        const red_circle = document.createElement('div');
+        red_circle.classList.add('red-circle');
+        red_circle.id = `red-circle${skill.id}`
+
+        wrapper.appendChild(green_circle)
+        wrapper.appendChild(red_circle)
+
+        //comprobar evidencias
+        updateRedCircle();
+        updateGreenCircle();
+
+        window.addEventListener('storage', updateRedCircle);
+        window.addEventListener('storage', updateGreenCircle);
+
+        function updateRedCircle(){
+            let evidences = localStorage.getItem('evidences');
+            evidences = JSON.parse(evidences) || [];
+            evidences = evidences.filter(evidence => evidence.skill == skill.id);
+
+            if (evidences.length > 0){
+                red_circle.textContent = evidences.length;
+                red_circle.classList.add('show_circle')
+            } else {
+                red_circle.classList.remove('show_circle')
+            }
+        }
+
+        function updateGreenCircle(){
+            let state = localStorage.getItem('competence_state');
+            state = JSON.parse(state) || [];
+            state = state.find(state => state.skill == skill.id);
+
+            if (state.state !== "uncompleted"){
+                green_circle.classList.add('show_circle')
+                wrapper.classList.add('done')
+            } else {
+                green_circle.classList.remove('show_circle')
+                wrapper.classList.remove('done')
+            }
+        }
     });
 };

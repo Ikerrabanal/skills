@@ -88,6 +88,49 @@ h1 {
   transform: scale(1.2); /* Aumenta el tamaño en un 20% */
 }
 
+.svg-wrapper.done {
+  background-color: green;
+}
+
+.red-circle {
+  visibility: hidden;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #db3434;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  top: -10%;
+  right: 75%;
+}
+
+.green-circle {
+  visibility: hidden;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #53db34;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-align: center;
+
+  position: absolute;
+  top: -10%;
+  right: 0%;
+}
+
+.show_circle {
+  visibility: visible;
+}
+
 .icons {
   position: absolute;
   top: 50%;
@@ -282,7 +325,38 @@ footer {
 
 /* Estilo para los encabezados de la tabla */
 #table-evidences th {
-  background-color: #4CAF50; /* Fondo verde */
+  background-color: #4c9baf; /* Fondo verde */
   color: white; /* Texto blanco */
   font-weight: bold; /* Negrita */
+}
+
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo específico para el botón "Aceptar" */
+.btn-accept {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+}
+
+.btn-accept:hover {
+  background-color: #45a049; /* Verde más oscuro al pasar el ratón */
+}
+
+/* Estilo específico para el botón "Denegar" */
+.btn-decline {
+  background-color: #f44336; /* Rojo */
+  color: white;
+}
+
+.btn-decline:hover {
+  background-color: #d32f2f; /* Rojo más oscuro al pasar el ratón */
 }
