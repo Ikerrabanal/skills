@@ -16,7 +16,7 @@ window.onload = async function () {
         // Crear el SVG
         const svg = `
         <svg width="100" height="100" viewBox="0 0 100 100">
-          <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" class="hexagon" />
+          <polygon id="hexagon-${skill.id}" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" class="hexagon" />
           <text x="50%" y="20%" text-anchor="middle" fill="black" font-size="10">
             ${skill.text.split('\n\n\n').map(line => `<tspan x="50%" dy="1.2em" font-weight="bold">${line}</tspan>`).join('')}
           </text>
@@ -51,25 +51,14 @@ window.onload = async function () {
 
         //como aun no hay autentificacion, ponemos de primeras que ninguna está completada
 
-        let cs = localStorage.getItem('competence_state');
-        if (cs == null){
-            console.log('nuevo')
-            cs = [{skill: skill.id, state: "uncompleted"}];
-            localStorage.setItem('competence_state', JSON.stringify(cs));
-        } else {
-            cs = JSON.parse(cs)
-            cs_skill = cs.filter(competence => competence.skill == skill.id);
-            if (cs_skill.length == 0){
-                cs.push({skill: skill.id, state: "uncompleted"})
-                localStorage.setItem('competence_state', JSON.stringify(cs));
-            }
-        }
+        inicializeState(skill.id);
 
         //actualizamos circulos
 
         const green_circle = document.createElement('div');
         green_circle.classList.add('green-circle');
         green_circle.id = `green-circle${skill.id}`
+        green_circle.textContent = '1';
 
         const red_circle = document.createElement('div');
         red_circle.classList.add('red-circle');
@@ -82,14 +71,12 @@ window.onload = async function () {
         updateRedCircle();
         updateGreenCircle();
 
+        //si se actualiza el storage, se actualizan los circulos
         window.addEventListener('storage', updateRedCircle);
         window.addEventListener('storage', updateGreenCircle);
 
         function updateRedCircle(){
-            let evidences = localStorage.getItem('evidences');
-            evidences = JSON.parse(evidences) || [];
-            evidences = evidences.filter(evidence => evidence.skill == skill.id);
-
+            let evidences = getEvidencesBySkill(skill.id);
             if (evidences.length > 0){
                 red_circle.textContent = evidences.length;
                 red_circle.classList.add('show_circle')
@@ -99,17 +86,47 @@ window.onload = async function () {
         }
 
         function updateGreenCircle(){
-            let state = localStorage.getItem('competence_state');
-            state = JSON.parse(state) || [];
-            state = state.find(state => state.skill == skill.id);
+            let hexagon = document.getElementById(`hexagon-${skill.id}`);
+            let state = getState(skill.id);
+            console.log(hexagon);
 
-            if (state.state !== "uncompleted"){
+            if (state !== "uncompleted"){
                 green_circle.classList.add('show_circle')
-                wrapper.classList.add('done')
+                hexagon.classList.add('done')
             } else {
                 green_circle.classList.remove('show_circle')
-                wrapper.classList.remove('done')
+                hexagon.classList.remove('done')
             }
         }
     });
 };
+
+function getState(skillID){
+    let state = localStorage.getItem('competence_state');
+    state = JSON.parse(state) || [];
+    state = state.find(state => state.skill == skillID);
+    return state.state;
+}
+
+function getEvidencesBySkill(skillID){
+    let evidences = localStorage.getItem('evidences');
+    evidences = JSON.parse(evidences) || [];
+
+    evidences = evidences.filter(evidence => evidence.skill == skillID);
+    return evidences;
+}
+
+function inicializeState(skillID) {
+    let cs = localStorage.getItem('competence_state');
+    if (cs == null) {
+        cs = [{skill: skillID, state: "uncompleted"}];
+        localStorage.setItem('competence_state', JSON.stringify(cs));
+    } else {
+        cs = JSON.parse(cs)
+        cs_skill = cs.filter(competence => competence.skill == skillID);
+        if (cs_skill.length == 0) {
+            cs.push({skill: skillID, state: "uncompleted"})
+            localStorage.setItem('competence_state', JSON.stringify(cs));
+        }
+    }
+}
