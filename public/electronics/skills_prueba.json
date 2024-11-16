@@ -2,52 +2,152 @@
   {
     "id": 1,
     "text": "Light up an\n\n\nLED for the first\n\n\ntime",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon1.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon1.svg",
+    "title": "Light up an LED for the first time",
+    "description": "This is the example description for this skill.",
+    "tasks": [
+      "Task 1: This is the first task.",
+      "Task 2: This is the second task."
+    ],
+    "resources": [
+      "Resource 1: This is the first resource",
+      "Resource 2: This is the second resource"
+    ]
   },
   {
     "id": 2,
     "text": "Learn to\n\n\nuse wire strippers",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon2.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon2.svg",
+    "title": "Learn to use wire strippers",
+    "description": "Learn how to properly use wire strippers for different gauges of wire.",
+    "tasks": [
+      "Task 1: Practice stripping different wire gauges.",
+      "Task 2: Identify and handle different types of wire."
+    ],
+    "resources": [
+      "Resource 1: Video tutorial on wire stripping.",
+      "Resource 2: Guide on selecting the correct wire stripper."
+    ]
   },
   {
     "id": 3,
     "text": "Complete\n\n\nan electronics kit",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon3.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon3.svg",
+    "title": "Complete an electronics kit",
+    "description": "Assemble a full electronics kit, from start to finish.",
+    "tasks": [
+      "Task 1: Follow the instructions to assemble the kit.",
+      "Task 2: Test the functionality of the finished project."
+    ],
+    "resources": [
+      "Resource 1: Assembly manual for the electronics kit.",
+      "Resource 2: Video guide for assembling the kit."
+    ]
   },
   {
     "id": 4,
     "text": "Learn to Solder",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon4.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon4.svg",
+    "title": "Learn to Solder",
+    "description": "Learn the basics of soldering components onto a PCB.",
+    "tasks": [
+      "Task 1: Practice soldering simple components.",
+      "Task 2: Solder a complete circuit board."
+    ],
+    "resources": [
+      "Resource 1: Soldering tutorial video.",
+      "Resource 2: List of best soldering tools."
+    ]
   },
   {
     "id": 5,
     "text": "Learn to use\n\n\na breadboard",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon5.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon5.svg",
+    "title": "Learn to use a breadboard",
+    "description": "Learn how to set up and use a breadboard for prototyping circuits.",
+    "tasks": [
+      "Task 1: Assemble a basic circuit on a breadboard.",
+      "Task 2: Learn how to use jump wires to connect components."
+    ],
+    "resources": [
+      "Resource 1: Breadboard setup guide.",
+      "Resource 2: Video tutorial on breadboard assembly."
+    ]
   },
   {
     "id": 6,
     "text": "Get a circuit\n\n\nwrong and try\n\n\nagain",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon6.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon6.svg",
+    "title": "Get a circuit wrong and try again",
+    "description": "Learn how to troubleshoot and fix mistakes in your circuits.",
+    "tasks": [
+      "Task 1: Identify and fix common circuit errors.",
+      "Task 2: Learn the process of circuit debugging."
+    ],
+    "resources": [
+      "Resource 1: Guide on common circuit mistakes.",
+      "Resource 2: Video on troubleshooting electronics."
+    ]
   },
   {
     "id": 7,
     "text": "Learn Ohm’s\n\n\nLaw",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon7.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon7.svg",
+    "title": "Learn Ohm’s Law",
+    "description": "Understand and apply Ohm's Law in various circuits.",
+    "tasks": [
+      "Task 1: Solve Ohm's law equations.",
+      "Task 2: Apply Ohm's law in real-life circuits."
+    ],
+    "resources": [
+      "Resource 1: Interactive Ohm's law calculator.",
+      "Resource 2: Video explanation of Ohm's law."
+    ]
   },
   {
     "id": 8,
     "text": "Fix something\n\n\nsomething\n\n\nthat’s broken",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon8.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon8.svg",
+    "title": "Fix something that's broken",
+    "description": "Learn how to repair common household electronics.",
+    "tasks": [
+      "Task 1: Identify common problems in electronics.",
+      "Task 2: Follow a step-by-step guide to fix the device."
+    ],
+    "resources": [
+      "Resource 1: Guide on electronics repair basics.",
+      "Resource 2: Video tutorial on repairing common electronics."
+    ]
   },
   {
     "id": 9,
     "text": "Measure\n\n\nvoltage with\n\n\na multimeter",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon9.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
+    "title": "Measure voltage with a multimeter",
+    "description": "Learn how to measure voltage in various parts of a circuit using a multimeter.",
+    "tasks": [
+      "Task 1: Measure voltage across different components.",
+      "Task 2: Interpret multimeter readings."
+    ],
+    "resources": [
+      "Resource 1: Multimeter user guide.",
+      "Resource 2: Video tutorial on using a multimeter."
+    ]
   },
   {
     "id": 10,
     "text": "Learn to\n\n\nread a schematic",
-    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon10.svg"
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
+    "title": "Learn to read a schematic",
+    "description": "Learn the fundamentals of reading and understanding circuit schematics.",
+    "tasks": [
+      "Task 1: Identify different components in a schematic.",
+      "Task 2: Follow the schematic to build a circuit."
+    ],
+    "resources": [
+      "Resource 1: Guide on reading circuit schematics.",
+      "Resource 2: Interactive schematic viewer."
+    ]
   },
   {
     "id": 11,

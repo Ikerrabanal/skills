@@ -6,6 +6,8 @@
   <title>Detalles de la Competencia</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/competencia.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
 </head>
 <body>
 <h1 id="competencia-title"></h1>
@@ -13,21 +15,36 @@
   <img id="competencia-icon" alt="Icono de la competencia">
   <p id="competencia-description"></p>
 
-  <h2>Tareas</h2>
+  <h2>Tasks to complete</h2>
   <ul id="tareas-list"></ul>
 
-  <h2>Recursos</h2>
+  <!-- Formulario de evidencia que aparecerá al completar las tareas -->
+  <div id="evidence-form" style="display: none;">
+    <h2>Provided evidences</h2>
+    <input type="url" id="submit_content" placeholder="Enter a URL, explanation or evidence for this skill." required>
+    <button id="submit_button"> Submit Evidence</button>
+    <div id="success-message">¡Evidencia enviada correctamente!</div>
+  </div>
+
+  <h2>Resources</h2>
   <ul id="recursos-list"></ul>
 </div>
 
-<!-- Formulario de evidencia que aparecerá al completar las tareas -->
-<form id="evidence-form" style="display: none;">
-  <label for="evidence-url">URL de evidencia:</label>
-  <input type="url" id="evidence-url" placeholder="http://tuevidencia.com" required>
-  <button type="submit">Submit Evidence</button>
-</form>
-
 <!-- Elemento para la animación de confeti -->
 <canvas id="confetti-canvas"></canvas>
+<div style="text-align: center;">
+  <h2 >Unverified Evidence Submissions</h2>
+  <table id="table-evidences">
+    <thead>
+    <tr>
+      <th>User</th>
+      <th>Evidence</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
 </body>
 </html>
