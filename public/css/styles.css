@@ -88,10 +88,6 @@ h1 {
   transform: scale(1.2); /* Aumenta el tamaño en un 20% */
 }
 
-.svg-wrapper.done {
-  background-color: green;
-}
-
 .red-circle {
   visibility: hidden;
   width: 25px;
@@ -160,6 +156,11 @@ h1 {
 .selected .hexagon {
   fill: var(--selected-color, yellow);
 }
+
+.hexagon.done {
+  fill: #afef5e; /* Cambia el relleno del hexágono */
+}
+
 
 @media print {
   .color-picker {

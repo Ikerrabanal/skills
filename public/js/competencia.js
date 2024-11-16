@@ -31,7 +31,14 @@ window.onload = async function () {
     const checkboxes = document.querySelectorAll('.tarea-checkbox');
     checkboxes.forEach(checkbox => checkbox.addEventListener('change', checkCompletion));
 
-    document.getElementById('submit_button').addEventListener('click', submitted)
+    //hacer submit si se pulsa boton o enter
+    document.getElementById('submit_button').addEventListener('click', submitted);
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            submitted();
+        }
+    });
 
     updateEvidencesTable();
 
@@ -42,14 +49,7 @@ window.onload = async function () {
             showMessage('Evidencia enviada correctamente.', 'green')
             document.getElementById('submit_content').value = '';
 
-            let evidences = localStorage.getItem('evidences');
-            if (!evidences){
-                evidences = []
-            } else {
-                evidences = JSON.parse(evidences);
-            }
-            evidences.push({id: Date.now(), skill: competenciaId, user: 'me', evidence: inputValue})
-            localStorage.setItem('evidences', JSON.stringify(evidences));
+            addEvidence(competenciaId, "me", inputValue);
             updateEvidencesTable();
         } else {
             showMessage('Por favor, ingresa una URL, explicación o evidencia válida.', 'red')
@@ -89,10 +89,7 @@ window.onload = async function () {
             tableBody.deleteRow(0);
         }
 
-        let evidences = localStorage.getItem('evidences');
-        evidences = JSON.parse(evidences) || [];
-
-        evidences = evidences.filter(evidence => evidence.skill == competenciaId);
+        let evidences = getEvidencesBySkill(competenciaId);
 
         evidences.forEach(evidence => {
             const row = document.createElement("tr");
@@ -126,42 +123,21 @@ window.onload = async function () {
         });
     }
 
-    function acceptEvidence(evidenceId) {
-        let evidences = localStorage.getItem('evidences');
-        evidences = JSON.parse(evidences) || [];
-        evidences = evidences.filter(evidence => evidence.id !== evidenceId);
-        localStorage.setItem('evidences', JSON.stringify(evidences));
+    function acceptEvidence(evidenceID) {
+        deleteEvidence(evidenceID);
 
         showMessage('La evidencia se ha aceptado correctamente.', 'green');
         updateEvidencesTable();
 
-        let competenceState = localStorage.getItem('competence_state');
-        competenceState = JSON.parse(competenceState) || [];
-
-        const foundCompetence = competenceState.find(state => state.skill === competencia.id);
-        if (foundCompetence) {
-            foundCompetence.state = "completed";
-        }
-        localStorage.setItem('competence_state', JSON.stringify(competenceState));
+        changeCompetenceState(competenciaId, "completed");
     }
 
-    function declineEvidence(evidenceId) {
-        let evidences = localStorage.getItem('evidences');
-        evidences = JSON.parse(evidences) || [];
-        evidences = evidences.filter(evidence => evidence.id !== evidenceId);
-        localStorage.setItem('evidences', JSON.stringify(evidences));
-
+    function declineEvidence(evidenceID) {
+        deleteEvidence(evidenceID);
         showMessage('La evidencia se ha rechazado correctamente.', 'green');
         updateEvidencesTable();
 
-        let competenceState = localStorage.getItem('competence_state');
-        competenceState = JSON.parse(competenceState) || [];
-
-        const foundCompetence = competenceState.find(state => state.skill === competencia.id);
-        if (foundCompetence) {
-            foundCompetence.state = "uncompleted";
-        }
-        localStorage.setItem('competence_state', JSON.stringify(competenceState));
+        changeCompetenceState(competenciaId, "uncompleted");
     }
 
     function showMessage(text, colour){
@@ -177,3 +153,40 @@ window.onload = async function () {
     }
 
 };
+
+function getEvidencesBySkill(id){
+    let evidences = localStorage.getItem('evidences');
+    evidences = JSON.parse(evidences) || [];
+
+    evidences = evidences.filter(evidence => evidence.skill == id);
+    return evidences;
+}
+
+function deleteEvidence(evidenceID){
+    let evidences = localStorage.getItem('evidences');
+    evidences = JSON.parse(evidences) || [];
+    evidences = evidences.filter(evidence => evidence.id !== evidenceID);
+    localStorage.setItem('evidences', JSON.stringify(evidences));
+}
+
+function changeCompetenceState(competenceID, newstate) {
+    let competenceState = localStorage.getItem('competence_state');
+    competenceState = JSON.parse(competenceState) || [];
+
+    const foundCompetence = competenceState.find(state => state.skill == competenceID);
+    if (foundCompetence) {
+        foundCompetence.state = newstate;
+    }
+    localStorage.setItem('competence_state', JSON.stringify(competenceState));
+}
+
+function addEvidence(competenceID, user, content){
+    let evidences = localStorage.getItem('evidences');
+    if (!evidences){
+        evidences = []
+    } else {
+        evidences = JSON.parse(evidences);
+    }
+    evidences.push({id: Date.now(), skill: competenceID, user: user, evidence: content})
+    localStorage.setItem('evidences', JSON.stringify(evidences));
+}
