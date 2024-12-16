@@ -4,11 +4,122 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Falta mejorar un poco el que se ponga en verde el hexagono y revisar">
+    <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="finalizado sin comprobar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/competencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/competencia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/skills.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/skills.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/00-observador-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/00-observador-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/01-Aspirante-cadete-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/01-Aspirante-cadete-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/02-cadete-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/02-cadete-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/03-cadete-N1-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/03-cadete-N1-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/04-cadete-N2-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/04-cadete-N2-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/05-cadete-N3-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/05-cadete-N3-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/06-Aspirante-padawan-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/06-Aspirante-padawan-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/07-Aspirante-padawan-N1-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/07-Aspirante-padawan-N1-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/08-Aspirante-padawan-N2-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/08-Aspirante-padawan-N2-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/09-Aspirante-padawan-N3-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/09-Aspirante-padawan-N3-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/10-Padawan-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/10-Padawan-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/11-Padawan-N1-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/11-Padawan-N1-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/12-Padawan-N2-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/12-Padawan-N2-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/13-Padawan-N3-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/13-Padawan-N3-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/14-Aspirante-jedi-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/14-Aspirante-jedi-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/15-Aspirante-jedi-N1-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/15-Aspirante-jedi-N1-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/16-Aspirante-jedi-N2-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/16-Aspirante-jedi-N2-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/17-Aspirante-jedi-N3-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/17-Aspirante-jedi-N3-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/18-Jedi-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/18-Jedi-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/19-Jedi-N1-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/19-Jedi-N1-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/20-Jedi-N2-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/20-Jedi-N2-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/21-Jedi-N3-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/21-Jedi-N3-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/icons/22-Caballero-Jedi-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/icons/22-Caballero-Jedi-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/badges/medallas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/badges/medallas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/competencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/competencia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon10.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon11.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon11.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon12.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon12.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon13.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon13.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon14.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon14.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon15.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon15.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon16.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon16.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon17.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon17.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon18.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon18.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon19.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon19.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon20.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon21.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon21.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon22.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon22.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon23.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon23.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon24.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon24.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon25.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon25.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon26.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon26.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon27.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon27.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon28.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon28.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon29.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon29.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon3.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon30.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon30.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon31.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon31.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon32.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon32.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon33.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon33.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon34.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon34.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon35.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon35.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon36.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon36.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon37.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon37.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon38.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon38.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon39.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon39.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon4.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon4.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon40.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon40.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon41.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon41.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon42.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon42.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon43.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon43.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon44.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon44.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon45.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon45.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon46.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon46.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon47.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon47.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon48.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon48.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon49.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon49.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon5.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon5.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon50.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon50.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon51.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon51.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon52.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon52.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon53.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon53.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon54.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon54.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon55.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon55.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon56.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon56.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon57.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon57.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon58.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon58.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon59.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon59.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon6.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon6.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon60.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon60.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon61.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon61.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon62.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon62.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon63.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon63.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon64.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon64.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon65.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon65.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon66.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon66.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon67.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon67.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon7.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon7.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon8.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon8.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/icons/icon9.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/icons/icon9.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/skills.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/skills.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/electronics/skills_prueba.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/electronics/skills_prueba.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/badges.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/badges.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/competencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/competencia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/skills.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/skills.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/leaderboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/leaderboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/skills.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/users.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/download_badges_images.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/download_badges_images.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/download_icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/download_icons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/get-badges.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/get-badges.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/scraper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/scraper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/error.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +154,9 @@
     &quot;accountId&quot;: &quot;84ba6617-bb65-4db6-bbbf-347042f47986&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -54,41 +168,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Diego&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ehu/IdeaProjects/skills/public/electronics&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Diego",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Diego/IdeaProjects/skills",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ehu\IdeaProjects\skills\public\electronics" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Diego\IdeaProjects\skills\src" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="skills" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="skills" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="skills" />
       <option name="ENV_FILES" value="" />
@@ -231,7 +338,10 @@
       <workItem from="1731410570785" duration="334000" />
       <workItem from="1731595466327" duration="7093000" />
       <workItem from="1731683262990" duration="11895000" />
-      <workItem from="1731751180758" duration="2446000" />
+      <workItem from="1731751180758" duration="4329000" />
+      <workItem from="1732023230508" duration="40000" />
+      <workItem from="1732696446001" duration="1302000" />
+      <workItem from="1734340164346" duration="13997000" />
     </task>
     <task id="LOCAL-00001" summary="Empezado el ejercicio 4">
       <option name="closed" value="true" />
@@ -257,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731695121132</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finalizado sin comprobar">
+      <option name="closed" value="true" />
+      <created>1731754457196</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731754457196</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +397,7 @@
     <MESSAGE value="Empezado el ejercicio 4" />
     <MESSAGE value="Competencia y mensaje de descripcion" />
     <MESSAGE value="Falta mejorar un poco el que se ponga en verde el hexagono y revisar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Falta mejorar un poco el que se ponga en verde el hexagono y revisar" />
+    <MESSAGE value="finalizado sin comprobar" />
+    <option name="LAST_COMMIT_MESSAGE" value="finalizado sin comprobar" />
   </component>
 </project>
