@@ -18,7 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: '123456789',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: { maxAge: 6000000 } // Session expires after 60 seconds
 }));
 
 app.use('/skills', skillsRouter);
@@ -34,9 +35,9 @@ app.get('/', (req, res) => {
 
 app.use(express.static(__dirname + '/public'));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor funcionando en el puerto ${PORT}`);
-});
+//const PORT = process.env.PORT || 3000;
+//pp.listen(PORT, () => {
+//  console.log(`Servidor funcionando en el puerto ${PORT}`);
+//});
 
 module.exports = app;
