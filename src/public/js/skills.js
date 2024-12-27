@@ -49,6 +49,11 @@ window.onload = async function () {
             window.location.href = `/competencia.html?id=${skill.id}`; // Pasar el ID en la URL
         });
 
+        wrapper.querySelector('.pencil').addEventListener('click', () => {
+            window.location.href = `/edit.html?id=${skill.id}&tree=electronics`;
+        });
+
+
         //como aun no hay autentificacion, ponemos de primeras que ninguna está completada
 
         inicializeState(skill.id);

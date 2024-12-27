@@ -48,19 +48,33 @@ exports.login = async (req, res, next) => {
     }
 };
 
+exports.isAdmin = (req, res, next) => {
+    const user = users.find(user => user.username === req.session.user);
+    if (user && user.admin) {
+        next();
+    } else {
+        res.status(403).send('Denied access. Only admin.');
+    }
+};
+
+
 exports.register = async (req, res) => {
     try {
         const { username, password } = req.body;
 
+        // Verificar si el usuario ya existe
         if (users.find(user => user.username === username)) {
             return res.status(400).send('Username already exists');
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        const isAdmin = users.length === 0;
+
         users.push({
             username,
-            password: hashedPassword
+            password: hashedPassword,
+            admin: isAdmin
         });
 
         res.redirect('/users/login')
