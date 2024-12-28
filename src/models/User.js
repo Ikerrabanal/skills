@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
     score: {
         type: Number,
         min: 0,
+        default: 0,
     },
     admin: {
         type: Boolean,
