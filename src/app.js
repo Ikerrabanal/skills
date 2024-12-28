@@ -7,10 +7,10 @@ const usersRouter = require('./routes/users.routes');
 const adminRouter = require('./routes/admin.routes');
 const errorHandler = require('./middleware/error.middleware');
 const connectDB = require('./config/database');
-
+const s = require('./config/addData');
 
 connectDB();
-
+s.addSkills();
 
 const app = express();
 

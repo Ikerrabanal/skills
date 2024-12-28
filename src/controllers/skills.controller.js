@@ -1,8 +1,13 @@
 const path = require("node:path");
+
+const Skill = require('../models/UserSkill');
+
 exports.renderIndex = async (req, res, next) => {
     try {
         if(req.session.user) {
-            res.sendFile(path.join(__dirname, '..', 'public/index.html')); //esta mal, hay que pasarle vista dinamica porque depende de la sesion
+            //Hay que pasarle el usuario, las habilidades,...
+            userSkills = await Skill.find({user: req.session.user._id});
+            res.render('skills', {user: req.session.user, skills: userSkills});
         } else {
             res.redirect('/users/login')
         }

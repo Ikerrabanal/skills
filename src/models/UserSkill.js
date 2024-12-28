@@ -44,4 +44,4 @@ const userSkillSchema = new mongoose.Schema({
         },
     }],
 });
-module.exports = mongoose.model('Grupo', grupoSchema);
+module.exports = mongoose.model('UserSkill', userSkillSchema);
