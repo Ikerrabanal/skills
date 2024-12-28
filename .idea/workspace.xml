@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Introducida página de edit (aún no edita correctamente)">
+    <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Empezadas plantillas Mongo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +180,8 @@
       <workItem from="1735292927673" duration="13641000" />
       <workItem from="1735317462694" duration="2322000" />
       <workItem from="1735324798756" duration="470000" />
-      <workItem from="1735325521434" duration="2933000" />
+      <workItem from="1735325521434" duration="3600000" />
+      <workItem from="1735378332937" duration="155000" />
     </task>
     <task id="LOCAL-00001" summary="Empezado el ejercicio 4">
       <option name="closed" value="true" />
@@ -226,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735308421658</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Empezadas plantillas Mongo">
+      <option name="closed" value="true" />
+      <created>1735335578616</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1735335578616</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +255,7 @@
     <MESSAGE value="Falta mejorar un poco el que se ponga en verde el hexagono y revisar" />
     <MESSAGE value="finalizado sin comprobar" />
     <MESSAGE value="Introducida página de edit (aún no edita correctamente)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Introducida página de edit (aún no edita correctamente)" />
+    <MESSAGE value="Empezadas plantillas Mongo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Empezadas plantillas Mongo" />
   </component>
 </project>
