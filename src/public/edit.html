@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Competencia</title>
+    <link rel="stylesheet" href="css/style-edit.css">
+    <script src="js/edit.js" defer></script>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <span>¡Bienvenido! | </span>
+        <a href="/skills">Árbol de habilidades</a>
+        <span>(68)</span>
+        <a href="/leaderboard">Clasificación</a> |
+        <a href="/about">Acerca de</a> |
+        <a href="/logout">Cerrar sesión</a>
+    </div>
+</header>
+
+<main class="edit-skill-container">
+    <h1>Editar Competencia: <span id="skill-title"></span></h1>
+    <h2>ELECTRÓNICA (68 habilidades)</h2>
+    <form id="edit-skill-form" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Icono de la habilidad:</label>
+            <div id="skill-icon-container">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="skill-text">Título de la habilidad:</label>
+            <input type="text" id="skill-text" name="skill-text" placeholder="Título competencia">
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Descripción de la competencia"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="tasks">Tareas a completar (una por línea):</label>
+            <textarea id="tasks" name="tasks" rows="3" placeholder="Tareas de la competencia"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="resources">Recursos (uno por línea):</label>
+            <textarea id="resources" name="resources" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="skill-score">Puntuación de la habilidad:</label>
+            <input type="number" id="skill-score" name="skill-score" min="1" max="100" value="1">
+        </div>
+        <div class="form-group">
+            <label for="icon">Subir Icono (30x30 png):</label>
+            <input type="file" id="icon" name="icon" accept="image/png">
+        </div>
+        <div class="buttons">
+            <button type="submit" class="btn btn-save">Guardar</button>
+            <button type="button" class="btn btn-cancel" onclick="window.location.href='/skills'">Cancelar</button>
+            <button type="button" class="btn btn-delete" onclick="deleteSkill()">Eliminar Habilidad</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>
