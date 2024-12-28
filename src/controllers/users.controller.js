@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 
-users = []
+const User = require('../models/User');
 
 exports.renderLogin = async (req, res, next) => {
     try {
@@ -28,8 +28,10 @@ exports.renderRegister = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
     try {
+
         const { username, password } = req.body;
-        const user = users.find(user => user.username === username);
+        const user = await User.findOne({ username: username }).exec();
+
         if (!user) {
             return res.status(400).send('User not found');
         }
@@ -44,6 +46,7 @@ exports.login = async (req, res, next) => {
 
         res.redirect('/skills')
     } catch (error) {
+        console.log(error);
         res.status(500).send('Error logging in');
     }
 };
@@ -63,19 +66,18 @@ exports.register = async (req, res) => {
         const { username, password } = req.body;
 
         // Verificar si el usuario ya existe
-        if (users.find(user => user.username === username)) {
+        if (await User.findOne({ username: username }).exec()) {
             return res.status(400).send('Username already exists');
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const isAdmin = users.length === 0;
+        // Verificar si existen Usuarios
+        const isAdmin = await User.countDocuments({}).exec() === 0;
 
-        users.push({
-            username,
-            password: hashedPassword,
-            admin: isAdmin
-        });
+
+        const user = new User({ username, password: hashedPassword, admin: isAdmin });
+        const savedUser = await user.save();
 
         res.redirect('/users/login')
 
@@ -83,3 +85,9 @@ exports.register = async (req, res) => {
         res.status(500).send('Error registering user');
     }
 };
+
+//Logout
+exports.logout = async (req, res) => {
+    req.session.destroy();
+    res.redirect('/users/login');
+}

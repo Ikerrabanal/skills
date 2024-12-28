@@ -6,20 +6,11 @@ const skillsRouter = require('./routes/skills.routes');
 const usersRouter = require('./routes/users.routes');
 const adminRouter = require('./routes/admin.routes');
 const errorHandler = require('./middleware/error.middleware');
+const connectDB = require('./config/database');
 
-const mongoose = require('mongoose');
-// URI de la bdd
-const mongoURI = 'mongodb://127.0.0.1:27017/skills';
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(mongoURI);
-    console.log('Conexión establecida a MongoDB');
-  } catch (error) {
-    console.error('Error de conexión:', error);
-    process.exit(1);
-  }
-};
+connectDB();
+
 
 const app = express();
 

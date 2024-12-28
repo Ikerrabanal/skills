@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Empezadas plantillas Mongo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Falta mejorar un poco el que se ponga en verde el hexagono y revisar">
+      <change beforePath="$PROJECT_DIR$/src/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users.controller.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Diego" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,13 +36,10 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Ikerrabanal/skills&quot;,
-    &quot;accountId&quot;: &quot;1402fabd-8b89-4b19-9782-b5158eaeca79&quot;
+    &quot;url&quot;: &quot;https://github.com/Ikerrabanal/skills.git&quot;,
+    &quot;accountId&quot;: &quot;84ba6617-bb65-4db6-bbbf-347042f47986&quot;
   }
 }</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -54,34 +51,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Unai&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Diego/IdeaProjects/skills&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Josu",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ehu/IdeaProjects/skills/public/electronics",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ehu\IdeaProjects\skills\public\electronics" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Diego\IdeaProjects\skills\src" />
-    </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="skills" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="skills" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="skills" />
       <option name="ENV_FILES" value="" />
@@ -132,23 +137,12 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -172,16 +166,7 @@
       <workItem from="1731410570785" duration="334000" />
       <workItem from="1731595466327" duration="7093000" />
       <workItem from="1731683262990" duration="11895000" />
-      <workItem from="1731751180758" duration="4329000" />
-      <workItem from="1732023230508" duration="40000" />
-      <workItem from="1732696446001" duration="1302000" />
-      <workItem from="1734340164346" duration="13997000" />
-      <workItem from="1735226569784" duration="1632000" />
-      <workItem from="1735292927673" duration="13641000" />
-      <workItem from="1735317462694" duration="2322000" />
-      <workItem from="1735324798756" duration="470000" />
-      <workItem from="1735325521434" duration="3600000" />
-      <workItem from="1735378332937" duration="155000" />
+      <workItem from="1731751180758" duration="2446000" />
     </task>
     <task id="LOCAL-00001" summary="Empezado el ejercicio 4">
       <option name="closed" value="true" />
@@ -207,31 +192,7 @@
       <option name="project" value="LOCAL" />
       <updated>1731695121132</updated>
     </task>
-    <task id="LOCAL-00004" summary="finalizado sin comprobar">
-      <option name="closed" value="true" />
-      <created>1731754457196</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1731754457196</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Introducida página de edit (aún no edita correctamente)">
-      <option name="closed" value="true" />
-      <created>1735308421657</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1735308421658</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Empezadas plantillas Mongo">
-      <option name="closed" value="true" />
-      <created>1735335578616</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1735335578616</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,9 +214,6 @@
     <MESSAGE value="Empezado el ejercicio 4" />
     <MESSAGE value="Competencia y mensaje de descripcion" />
     <MESSAGE value="Falta mejorar un poco el que se ponga en verde el hexagono y revisar" />
-    <MESSAGE value="finalizado sin comprobar" />
-    <MESSAGE value="Introducida página de edit (aún no edita correctamente)" />
-    <MESSAGE value="Empezadas plantillas Mongo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Empezadas plantillas Mongo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Falta mejorar un poco el que se ponga en verde el hexagono y revisar" />
   </component>
 </project>
