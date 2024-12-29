@@ -28,29 +28,29 @@ window.onload = async function () {
     // Guardar los cambios en el formulario
     document.getElementById('edit-skill-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        saveChanges(competenciaId);
+        handleSubmit(competenciaId);
     });
 };
 
-function saveChanges(skillId) {
-    const updatedSkill = {
-        id: skillId,
-        title: document.getElementById('skill-text').value,
-        description: document.getElementById('description').value,
-        tasks: document.getElementById('tasks').value.split('\n'),
-        resources: document.getElementById('resources').value.split('\n'),
-        score: parseInt(document.getElementById('skill-score').value),
-        icon: document.getElementById('icon').files.length ? document.getElementById('icon').files[0] : null
-    };
+async function handleSubmit(skillId) {
+    const form = document.getElementById('edit-skill-form');
+    const formData = new FormData(form);
 
-    // Actualizar la skill en la base de datos (aun no disponible)
-    updateSkillInStorage(updatedSkill);
-    alert('Los cambios se han guardado correctamente.');
-    window.location.href = '/skills';
-}
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+        });
 
-function updateSkillInStorage(updatedSkill) {
-    // Habra que utilizar mongodb para guardar las skills
+        if (response.ok) {
+            alert('Los cambios se han guardado correctamente.');
+            window.location.href = '/skills';
+        } else {
+            alert('Error al guardar los cambios. Intenta nuevamente.');
+        }
+    } catch (err) {
+        alert('Hubo un error en el envío de los datos.');
+    }
 }
 
 function deleteSkill() {

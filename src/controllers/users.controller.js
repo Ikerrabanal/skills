@@ -42,7 +42,7 @@ exports.login = async (req, res, next) => {
             return res.status(400).send('Invalid password');
         }
 
-        req.session.user = username;
+        req.session.user = { _id: user._id, username: user.username, isAdmin: user.admin };
 
         res.redirect('/skills')
     } catch (error) {
