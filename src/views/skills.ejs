@@ -9,6 +9,10 @@
 <body>
 <h1>ELECTRONICS</h1>
 
+<% if (user.isAdmin) { %>
+    <button onclick="window.location.href='/skills/electronics/add'" class="btn btn-add-skill">Añadir Nueva Skill</button>
+<% } %>
+
     <div class="svg-container">
         <% skills.forEach(skill => { %>
             <div class="svg-wrapper" data-id="<%= skill.id %>">

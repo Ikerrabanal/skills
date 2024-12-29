@@ -50,4 +50,16 @@ router.post('/:skillTree/edit/:id', async (req, res) => {
     }
 });
 
+const isAdmin = (req, res, next) => {
+    if (req.session.user && req.session.user.isAdmin) {
+        next();
+    } else {
+        res.status(403).send('Access Denied. Only admins can perform this action.');
+    }
+};
+
+router.get('/:skillTree/add', isAdmin, skillsController.renderAddSkill);
+
+router.post('/:skillTree/add', isAdmin, skillsController.saveNewSkill);
+
 module.exports = router;
