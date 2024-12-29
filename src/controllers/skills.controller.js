@@ -19,37 +19,41 @@ exports.renderIndex = async (req, res, next) => {
     }
 };
 
+exports.renderSkill = async (req, res, next) => {
+    const tree = req.params.skillTree;
+    const skillId = parseInt(req.params.id, 10); // Convert skillId to integer
+    const skill = await Skill.findOne({ id: skillId });
+    if (!skill) {
+        return res.status(404).send('Skill not found');
+    }
 
-exports.renderAddSkill = (req, res) => {
-    const { skillTree } = req.params;
-    res.render('add-skill', { skillTree });
+    res.render('edit-skill', { skill: skill, tree: tree });
 };
 
-exports.saveNewSkill = async (req, res) => {
+
+
+exports.editSkill = async (req, res) => {
+    const skillId = req.params.id;
+    const { name, description, tasks, resources, score, icon } = req.body;
+
     try {
-        const { skillTree } = req.params;
-        const { text, description, score, tasks, resources, icon } = req.body;
+        const skill = await Skill.findById(skillId);
 
-        // Generar un ID único para la skill
-        const lastSkill = await Skill.findOne().sort({ id: -1 }).exec();
-        const newId = lastSkill ? lastSkill.id + 1 : 1;
+        if (!skill) {
+            return res.status(404).send('Skill no encontrada');
+        }
 
-        const newSkill = new Skill({
-            id: newId,
-            text,
-            icon: icon || null, // Icono opcional
-            set: skillTree,
-            tasks: tasks ? tasks.split('\n') : [], // Dividir en líneas
-            resources: resources ? resources.split('\n') : [], // Dividir en líneas
-            description,
-            score: parseInt(score, 10) || 1, // Puntuación con valor predeterminado
-        });
+        skill.name = name;
+        skill.description = description;
+        skill.tasks = tasks.split('\n');
+        skill.resources = resources.split('\n');
+        skill.score = score;
 
-        await newSkill.save();
+        // Guardar cambios en mongo
+        await skill.findByIdAndUpdate(skillId, skill);
 
-        res.redirect('/skills'); // Redirigir a la lista de skills
-    } catch (error) {
-        console.error('Error al guardar la nueva skill:', error);
-        res.status(500).send('Error interno del servidor');
+        res.redirect('/skills');
+    } catch (err) {
+        res.status(500).send('Error al actualizar la habilidad');
     }
 };

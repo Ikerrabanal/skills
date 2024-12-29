@@ -1,0 +1,136 @@
+[
+  {
+    "taskID": 1,
+    "text": "Light up an\n\n\nLED for the first\n\n\ntime",
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon1.svg",
+    "tasks": [
+      "Gather necessary components (LED, resistor, battery, wires)",
+      "Learn about LED polarity and how to identify anode/cathode",
+      "Calculate appropriate resistor value for your LED and power source",
+      "Build a simple circuit on a breadboard to light the LED",
+      "Test the circuit and troubleshoot if needed",
+      "Experiment with different color LEDs and resistor values",
+      "Document your steps in a Google Drive doc and share its url as an evidence"
+    ],
+    "resources": [
+      "SparkFun's 'How to Use a Breadboard' tutorial: https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard",
+      "Adafruit's 'LED Circuit' guide: https://learn.adafruit.com/adafruit-arduino-lesson-2-leds/led-circuits",
+      "All About Circuits' 'Light-Emitting Diodes (LEDs)' lesson: https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/light-emitting-diodes-leds/",
+      "YouTube video: 'How To Light an LED - The Basics' by Paul McWhorter: https://www.youtube.com/watch?v=OzoPxvlM2qE"
+    ],
+    "description": "The quintessential first step in electronics! Learn the basics of circuits and components by lighting up an LED.",
+    "score": 1,
+    "set": "default"
+  },
+
+  {
+    "taskID": 2,
+    "text": "Learn to\n\n\nuse wire strippers",
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon2.svg",
+    "tasks": [
+      "Learn about different wire gauges and types",
+      "Understand wire stripper markings and size indicators",
+      "Practice stripping various wire sizes safely",
+      "Learn to avoid nicking the internal wire",
+      "Strip and prepare wires for different connector types",
+      "Practice creating consistent strip lengths",
+      "Document your practice results with photos"
+    ],
+    "resources": [
+      "Adafruit's Guide to Wire Stripping: https://learn.adafruit.com/wire-stripping",
+      "SparkFun's Wire Basics Tutorial: https://learn.sparkfun.com/tutorials/working-with-wire",
+      "Electronics-Tutorials Wire Gauge Guide: https://www.electronics-tutorials.com/basics/wire-gauge.htm"
+    ],
+    "description": "Master the essential skill of properly stripping wires for electronics projects, ensuring clean connections and safe assembly.",
+    "score": 1,
+    "set": "default"
+  },
+  {
+    "taskID": 3,
+    "text": "Complete\n\n\nan electronics kit",
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon3.svg",
+    "tasks": [
+      "Choose an appropriate beginner electronics kit",
+      "Inventory all components in the kit",
+      "Read and understand the assembly instructions",
+      "Follow the step-by-step build process",
+      "Test the completed circuit",
+      "Troubleshoot if necessary",
+      "Document the build process and final result"
+    ],
+    "resources": [
+      "Sparkfun's Kit Assembly Guides: https://learn.sparkfun.com/tutorials/tags/kits",
+      "Make: Electronics Book Companion Site: https://www.makershed.com/products/make-electronics-2ed",
+      "Electronics Kit Building Tips: https://learn.adafruit.com/electronics-assembly"
+    ],
+    "description": "Build confidence and practical skills by completing a structured electronics kit project.",
+    "score": 2,
+    "set": "default"
+  },
+  {
+    "taskID": 4,
+    "text": "Learn to Solder",
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon4.svg",
+    "tasks": [
+      "Learn soldering safety and workspace setup",
+      "Practice tinning the soldering iron",
+      "Learn proper temperature settings",
+      "Practice making solder joints on practice boards",
+      "Learn to identify good vs bad solder joints",
+      "Practice desoldering techniques",
+      "Complete a simple soldering project"
+    ],
+    "resources": [
+      "Adafruit's Guide to Excellent Soldering: https://learn.adafruit.com/adafruit-guide-excellent-soldering",
+      "SparkFun's How to Solder: https://learn.sparkfun.com/tutorials/how-to-solder",
+      "NASA's Basic Soldering Guide: https://www.nasa.gov/sites/default/files/atoms/files/nasa_soldering_guide.pdf"
+    ],
+    "description": "Master the fundamental skill of soldering - essential for creating permanent electrical connections.",
+    "score": 2,
+    "set": "default"
+  },
+  {
+    "taskID": 5,
+    "text": "Learn to use\n\n\na breadboard",
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon5.svg",
+    "tasks": [
+      "Understand breadboard layout and connections",
+      "Learn about power rails and distribution strips",
+      "Practice component placement and orientation",
+      "Build simple circuits using jumper wires",
+      "Learn to read breadboard diagrams",
+      "Practice neat wire management",
+      "Document your first successful breadboard circuit"
+    ],
+    "resources": [
+      "SparkFun's How to Use a Breadboard: https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard",
+      "Adafruit's Breadboard Layout Tutorial: https://learn.adafruit.com/breadboards-for-beginners",
+      "Electronics Club Breadboard Guide: https://electronicsclub.info/breadboard.htm"
+    ],
+    "description": "Master the use of breadboards for prototyping and testing electronic circuits without permanent connections.",
+    "score": 1,
+    "set": "default"
+  },
+  {
+    "taskID": 6,
+    "text": "Get a circuit\n\n\nwrong and try\n\n\nagain",
+    "icon": "../../web_skill_trees_resources/svg/electronics_icons/icon6.svg",
+    "tasks": [
+      "Build a circuit that doesn't work as expected",
+      "Learn to use a multimeter for troubleshooting",
+      "Document the symptoms of the failed circuit",
+      "Research potential causes of failure",
+      "Apply systematic debugging techniques",
+      "Successfully fix the circuit",
+      "Document lessons learned from the experience"
+    ],
+    "resources": [
+      "SparkFun's Circuit Troubleshooting Guide: https://learn.sparkfun.com/tutorials/electronics-troubleshooting",
+      "Adafruit's Circuit Debugging Tips: https://learn.adafruit.com/debugging-electronics",
+      "All About Circuits Troubleshooting Guide: https://www.allaboutcircuits.com/textbook/reference/chpt-7/troubleshooting/"
+    ],
+    "description": "Learn valuable troubleshooting skills by experiencing and overcoming circuit failures.",
+    "score": 1,
+    "set": "default"
+  }
+]

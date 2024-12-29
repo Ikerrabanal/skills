@@ -8,47 +8,9 @@ const userController = require('../controllers/users.controller');
 router.get('/', skillsController.renderIndex);
 
 // Mostrar edición
-router.get('/:skillTree/edit/:id', userController.isAdmin, (req, res) => {
-    const { skillTree, id } = req.params;
+router.get('/:skillTree/edit/:id', skillsController.renderSkill);
 
-    const skill = skills.find(s => s.id === id && s.skillTree === skillTree);
-
-    if (!skill) {
-        return res.status(404).send('Skill no encontrada');
-    }
-
-    res.render('edit-skill', { skill });
-});
-
-router.post('/:skillTree/edit/:id', async (req, res) => {
-    const skillId = req.params.id;
-    const { name, description, tasks, resources, score, icon } = req.body;
-
-    try {
-        const skill = await Skill.findById(skillId);
-
-        if (!skill) {
-            return res.status(404).send('Skill no encontrada');
-        }
-
-        skill.name = name;
-        skill.description = description;
-        skill.tasks = tasks.split('\n');
-        skill.resources = resources.split('\n');
-        skill.score = score;
-
-        if (icon) {
-            skill.icon = `/path/to/icons/${icon.filename}`;
-        }
-
-        // Guardar cambios en mongo
-        await skill.save();
-
-        res.redirect('/skills');
-    } catch (err) {
-        res.status(500).send('Error al actualizar la habilidad');
-    }
-});
+router.post('/:skillTree/edit/:id', skillsController.editSkill);
 
 const isAdmin = (req, res, next) => {
     if (req.session.user && req.session.user.isAdmin) {
