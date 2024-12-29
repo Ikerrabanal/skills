@@ -14,13 +14,6 @@ const skillSchema = new mongoose.Schema({
     icon: {
         type: String,
         required: false,
-        validate: {
-            validator: function (value) {
-                // Comprobar que es url
-                return !value || /^(http|https):\/\/[^ "]+$/.test(value);
-            },
-            message: 'Debe ser una URL válida',
-        },
     },
     set: {
         type: String,
