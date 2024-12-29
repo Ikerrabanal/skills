@@ -1,5 +1,6 @@
 const path = require("node:path");
-
+const multer = require('multer');
+const upload = multer({ dest: '../public/electronics/icons/' })
 const Skill = require('../models/Skill');
 const UserSkill = require('../models/UserSkill');
 
@@ -34,26 +35,31 @@ exports.renderSkill = async (req, res, next) => {
 
 exports.editSkill = async (req, res) => {
     const skillId = req.params.id;
-    const { name, description, tasks, resources, score, icon } = req.body;
-
+    const { text, description, tasks, resources, score } = req.body;
+    console.log(req.body)
     try {
-        const skill = await Skill.findById(skillId);
+        const skill = await Skill.findOne({ id: skillId });
 
         if (!skill) {
             return res.status(404).send('Skill no encontrada');
         }
-
-        skill.name = name;
+        console.log(text)
+        skill.id = skillId;
+        skill.text = text;
         skill.description = description;
         skill.tasks = tasks.split('\n');
         skill.resources = resources.split('\n');
         skill.score = score;
 
-        // Guardar cambios en mongo
-        await skill.findByIdAndUpdate(skillId, skill);
+        if (icon) {
+            skill.icon = icon;
+        }
 
+        // Guardar cambios en mongo
+        await skill.findOneAndUpdate({ id: skillId }, skill);
         res.redirect('/skills');
     } catch (err) {
-        res.status(500).send('Error al actualizar la habilidad');
+        console.log(err);
+        res.status(500).send('Error al guardar los cambios');
     }
 };

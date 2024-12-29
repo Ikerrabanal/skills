@@ -25,6 +25,8 @@
                 </svg>
                 <div class="icons">
                     <%if (user.isAdmin) { %>
+                        <!-- <span class="icon pencil" title="Editar" onclick="window.location.href='edit.html'">✏️</span> -->
+
                         <span class="icon pencil" title="Editar" onclick="window.location.href='/skills/electronics/edit/<%= skill.id %>'">✏️</span>
                     <% } %>
                         <span class="icon notebook" title="Ver Competencia" onclick="window.location.href='/competencia.html?id=<%= skill.id %>'">📓</span>

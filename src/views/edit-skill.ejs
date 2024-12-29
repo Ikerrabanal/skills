@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Competencia</title>
-    <link rel="stylesheet" href="css/style-edit.css">
+    <link rel="stylesheet" href="/css/style-edit.css">
 </head>
 <body>
 <header>
@@ -21,23 +21,22 @@
 <main class="edit-skill-container">
     <h1>Editar Competencia: <span id="skill-title"><%= skill.text %></span></h1>
     <h2>ELECTRÓNICA (<%= skill.set || 0 %> habilidades)</h2>
-
-    <div id="skill-icon-container">
-        <% if (skill.icon) { %>
-            <svg width="150" height="150" viewBox="0 0 200 200">
-                <polygon id="hexagon-<%= skill.id %>" points="100,10 190,55 190,145 100,190 10,145 10,55" class="hexagon" />
-                <text x="50%" y="15%" text-anchor="middle" fill="black" font-size="16">
-                    <%= skill.text.split('\n\n\n').map(line => `<tspan x="50%" dy="1.5em" font-weight="bold">${line}</tspan>`).join('') %>
-                </text>
-                <image x="25%" y="40%" width="100" height="100" href="<%= skill.icon %>" />
-            </svg>
-        <% } else { %>
-            <p>No hay icono disponible</p>
-        <% } %>
-    </div>
-
-    <!-- Formulario configurado para enviar datos al endpoint correspondiente -->
     <form id="edit-skill-form" method="POST" action="/skills/electronics/edit/<%= skill.id %>" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Icono de la habilidad:</label>
+            <div id="skill-icon-container">
+                <% if (skill.icon) { %>
+                    <svg width="150" height="150" viewBox="0 0 200 200">
+                        <polygon id="hexagon-<%= skill.id %>" points="100,10 190,55 190,145 100,190 10,145 10,55" class="hexagon" />
+
+                        <image x="25%" y="40%" width="100" height="100" href="/electronics/icons/icon<%= skill.id %>.svg" />
+                    </svg>
+                <% } else { %>
+                    <p>No hay icono disponible</p>
+                <% } %>
+            </div>
+        </div>
+
         <div class="form-group">
             <label for="skill-text">Título de la habilidad:</label>
             <input type="text" id="skill-text" name="text" placeholder="Título competencia" value="<%= skill.text %>" required>
@@ -52,7 +51,7 @@
         </div>
         <div class="form-group">
             <label for="resources">Recursos (uno por línea):</label>
-            <textarea id="resources" name="resources" rows="3"><%= skill.resources.join('\n') %></textarea>
+            <textarea id="resources" name="resources" rows="3" placeholder="Recursos de la competencia"><%= skill.resources.join('\n') %></textarea>
         </div>
         <div class="form-group">
             <label for="skill-score">Puntuación de la habilidad:</label>
