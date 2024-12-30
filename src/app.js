@@ -41,9 +41,6 @@ app.get('/', (req, res) => {
 
 app.use(express.static(__dirname + '/public'));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor funcionando en el puerto ${PORT}`);
-});
+
 
 module.exports = app;
