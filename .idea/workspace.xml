@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Falta mejorar un poco el que se ponga en verde el hexagono y revisar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/skills.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/skills.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/admin.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/skills.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/skills.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +169,7 @@
       <workItem from="1731595466327" duration="7093000" />
       <workItem from="1731683262990" duration="11895000" />
       <workItem from="1731751180758" duration="2446000" />
-      <workItem from="1735575739270" duration="6358000" />
+      <workItem from="1735575739270" duration="7734000" />
     </task>
     <task id="LOCAL-00001" summary="Empezado el ejercicio 4">
       <option name="closed" value="true" />

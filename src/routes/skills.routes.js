@@ -25,6 +25,6 @@ router.get('/:skillTree/add', isAdmin, skillsController.renderAddSkill);
 router.post('/:skillTree/add', isAdmin, skillsController.saveNewSkill);
 
 //eliminar skill
-router.get('/delete/:id', skillsController.deleteSkill);
+router.get('/delete/:id',isAdmin, skillsController.deleteSkill);
 
 module.exports = router;
