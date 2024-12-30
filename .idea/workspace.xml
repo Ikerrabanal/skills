@@ -6,13 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Falta mejorar un poco el que se ponga en verde el hexagono y revisar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/addData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/addData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/skills.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/skills.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/style-edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/style-edit.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/skills.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/skills.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/skills.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/edit-skill.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/edit-skill.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/skills.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/skills.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Josu" />
+        <entry key="$PROJECT_DIR$" value="Unai3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,7 +64,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Unai3",
+    "git-widget-placeholder": "Diego2",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ehu/IdeaProjects/skills/public/electronics",
     "node.js.detected.package.eslint": "true",
@@ -175,6 +176,7 @@
       <workItem from="1731595466327" duration="7093000" />
       <workItem from="1731683262990" duration="11895000" />
       <workItem from="1731751180758" duration="2446000" />
+      <workItem from="1735548466816" duration="31303000" />
     </task>
     <task id="LOCAL-00001" summary="Empezado el ejercicio 4">
       <option name="closed" value="true" />
