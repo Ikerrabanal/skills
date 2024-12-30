@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const Badge = require('../models/Badge');
 
 exports.viewUsers = async (req, res, next) => {
     try {
@@ -32,3 +33,69 @@ exports.editUsers = async (req, res) => {
     }
 };
 
+exports.viewBadges = async (req, res, next) => {
+
+    try {
+        const badges = await Badge.find(); // Obtiene todos los usuarios de la base de datos
+        res.render('allBadges', {user: req.session.user, badges}); // Envía los datos a la vista
+    } catch (error) {
+        console.error('Error fetching badges:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+exports.viewoneBadge = async (req, res, next) => {
+
+        const badgeId = req.params.id;
+        try {
+            const badge = await Badge.findOne({_id: badgeId}); // Obtiene todos los usuarios de la base de datos
+            res.render('edit-badge', {user: req.session.user, badge}); // Envía los datos a la vista
+        } catch (error) {
+            console.error('Error fetching badge:', error);
+            res.status(500).send('Internal Server Error');
+        }
+}
+
+
+exports.editBadges = async (req, res) => {
+    badgeId = req.params.id;
+    const { badgeName, badgeName2, badgeMin, badgeMax, badge_url } = req.body;
+    try {
+        console.log(badgeName, badgeMin, badgeMax, badge_url);
+        const updateBadge = await Badge.findOneAndUpdate(
+            {_id: badgeId},
+            {
+                name: badgeName,
+                bitpoints_min: badgeMin,
+                bitpoints_max: badgeMax,
+                image_url: badge_url
+            },
+        )
+        if (!updateBadge) {
+            return res.status(404).send('Error con medalla');
+        }
+
+        res.redirect('/admin/manage-badges');
+    } catch (error) {
+        console.error('Error updating badge:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+exports.deleteBadges = async (req, res) => {
+
+    const { badgeId } = req.body;
+    try {
+        const deleteBadge = await Badge.findOneAndDelete(
+            {_id: badgeId}
+        )
+        if (!deleteBadge) {
+            return res.status(404).send('Error con medalla');
+        }
+
+        res.redirect('/admin/manage-badges');
+    } catch (error) {
+        console.error('Error deleting badge:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}

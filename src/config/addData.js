@@ -35,7 +35,7 @@ exports.addBadges = async () => {
             name: rango.rango,
             bitpoints_min: rango.bitpoints_min,
             bitpoints_max: rango.bitpoints_max,
-            image_url: rango.png
+            image_url: rango.png.split('/').pop()
         }));
 
         // Insertar los nuevos rangos en la base de datos

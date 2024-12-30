@@ -5,6 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-Skill Tree : Manage Badges</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* Inline styling for quick adjustments (transfer to styles.css as needed) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .badges-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+
+        .badges-table th, .badges-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .badges-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,28 +85,43 @@
     </div>
 </header>
 
-<h1>Gestión de Insignias</h1>
+<h1>Manage Badges</h1>
 
 <% if (user.isAdmin) { %>
-    <button onclick="window.location.href='/admin/badges/create'" class="btn btn-add-badge">Añadir Nueva Insignia</button>
+    <button onclick="window.location.href='/admin/badges/create'" class="btn btn-add-badge">Add New Badge</button>
 <% } %>
 
 <table class="badges-table">
     <thead>
     <tr>
-        <th>Insignia</th>
-        <th>Puntuación Mínima (Bitpoints)</th>
-        <th>Acciones</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Range</th>
+        <th>Min Bitpoints</th>
+        <th>Max Bitpoints</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <% badges.forEach(badge => { %>
         <tr>
+            <td>
+                <img
+                        src="/badges/icons/<%= badge.image_url %>"
+                        alt="<%- badge.name %> icon"
+                        width="50"
+                        height="50"
+                        style="border: 1px solid #ccc; border-radius: 8px;"
+                />
+            </td>
             <td><%- badge.name %></td>
-            <td><%- badge.bitpoints_min %></td>
+            <td><%- badge.name %></td>
+            <td><%= badge.bitpoints_min %></td>
+            <td><%= badge.bitpoints_max %></td>
             <td>
                 <% if (user.isAdmin) { %>
-                    <a href="/admin/badges/edit/<%= badge.id %>" class="btn btn-edit">Editar</a>
+                    <a href="/admin/badges/edit/<%= badge.id %>" class="btn btn-edit">Edit</a>
+                    <a href="/admin/badges/delete/<%= badge.id %>" class="btn btn-delete">Delete</a>
                 <% } %>
             </td>
         </tr>

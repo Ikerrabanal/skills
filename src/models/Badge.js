@@ -26,12 +26,6 @@ const badgeSchema = new mongoose.Schema({
     image_url: {
         type: String,
         required: true,
-        validate: {
-            validator: function (value) {
-                return /^(http|https):\/\/[^ "]+$/.test(value);
-            },
-            message: 'Debe ser una URL válida',
-        },
     },
 }, { timestamps: true }); //Agrega campos createdAt y updatedAt al modelo
 
