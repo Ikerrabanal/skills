@@ -89,7 +89,7 @@ exports.updateSkill = async (req, res) => {
 
 exports.renderAddSkill = (req, res) => {
     const { skillTree } = req.params;
-    res.render('add-skill', { skillTree });
+    res.render('add-skill', {user: req.session.user, skillTree });
 };
 
 exports.saveNewSkill = async (req, res) => {
