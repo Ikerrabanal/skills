@@ -5,6 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-Skill Tree : Electronics</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        window.onload = function() {
+            const skills = <%- JSON.stringify(skills) %>;
+            const userSkills = <%- JSON.stringify(userSkills) %>; //pone error pero funciona bien
+            const userID = "<%= user._id %>";
+
+            skills.forEach(skill => {
+                createCircles(skill, userSkills, userID);
+            });
+        }
+
+        function createCircles(skill, userSkills, userID) {
+            const nRed = userSkills.filter(userSkill =>
+                userSkill.skill.toString() === skill._id.toString() &&
+                userSkill.completed === true &&
+                userSkill.verified === false
+            ).length;
+
+            const thisUserSkill = userSkills.filter(userSkill =>
+                userSkill.skill.toString() === skill._id.toString() &&  // Filtra por skillId
+                userSkill.user.toString() === userID                    // Filtra por userId
+            );
+
+            const nGreen = thisUserSkill.reduce((count, userSkill) => {
+                const approvedVerifications = userSkill.verifications.filter(verification =>
+                    verification.approved === true
+                );
+                return count + approvedVerifications.length;
+            }, 0);
+
+            const completed = userSkills.filter(userSkill =>
+                userSkill.skill.toString() === skill._id.toString() &&
+                userSkill.user.toString() === userID &&
+                userSkill.verified === true
+            );
+
+            const green_circle = document.createElement('div');
+            green_circle.classList.add('green-circle');
+            green_circle.id = `green-circle${skill._id}`;
+
+            const red_circle = document.createElement('div');
+            red_circle.classList.add('red-circle');
+            red_circle.id = `red-circle${skill._id}`;
+
+            const wrapper = document.querySelector('[data-id="' + skill._id + '"]');
+
+            wrapper.appendChild(green_circle);
+            wrapper.appendChild(red_circle);
+
+            if (nRed > 0) {
+                red_circle.textContent = nRed;
+                red_circle.classList.add('show_circle');
+            } else {
+                red_circle.classList.remove('show_circle');
+            }
+            if (nGreen> 0) {
+                console.log('entra')
+                green_circle.textContent = nGreen;
+                green_circle.classList.add('show_circle');
+            } else {
+                green_circle.classList.remove('show_circle');
+            }
+
+            const hexagon = wrapper.querySelector('.hexagon');
+
+            if (completed.length > 0) {
+                hexagon.classList.add('done');
+            } else {
+                hexagon.classList.remove('done');
+            }
+
+
+        }
+    </script>
 </head>
 <body>
 
@@ -44,27 +118,25 @@
 
 <div class="svg-container">
     <% skills.forEach(skill => { %>
-        <div class="svg-wrapper" data-id="<%= skill.id %>">
+        <div class="svg-wrapper" data-id="<%= skill._id %>">
             <svg width="100" height="100" viewBox="0 0 100 100">
                 <polygon id="hexagon-<%= skill.id %>" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" class="hexagon" />
                 <text x="50%" y="20%" text-anchor="middle" fill="black" font-size="10">
                     <%- skill.text.split('\n\n\n').map(line => `<tspan x="50%" dy="1.2em" font-weight="bold">${line}</tspan>`).join('') %>
                 </text>
-                <image x="35%" y="60%" width="30" height="30" href="./electronics/icons/icon<%= skill.id %>.svg" />
+                <image x="35%" y="60%" width="30" height="30" href="/electronics/icons/icon<%= skill.id %>.svg" />
             </svg>
             <div class="icons">
                 <% if (user.isAdmin) { %>
-                    <!-- <span class="icon pencil" title="Editar" onclick="window.location.href='edit.html'">✏️</span> -->
-
                     <span class="icon pencil" title="Editar" onclick="window.location.href='/skills/electronics/edit/<%= skill.id %>'">✏️</span>
                 <% } %>
-                <span class="icon notebook" title="Ver Competencia" onclick="window.location.href='/competencia.html?id=<%= skill.id %>'">📓</span>
+                <span class="icon notebook" title="Ver Competencia" onclick="window.location.href='/skills/electronics/view/<%= skill._id %>'">📓</span>
             </div>
         </div>
     <% }); %>
 </div>
-
 <div id="description-message"></div>
 
+<div id="description-message"></div>
 </body>
 </html>

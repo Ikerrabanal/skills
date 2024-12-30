@@ -3,6 +3,8 @@ const multer = require('multer');
 const upload = multer({ dest: '../public/electronics/icons/' })
 const Skill = require('../models/Skill');
 const UserSkill = require('../models/UserSkill');
+const User = require('../models/User');
+const mongoose = require('mongoose');
 
 exports.renderIndex = async (req, res, next) => {
     try {
@@ -10,8 +12,8 @@ exports.renderIndex = async (req, res, next) => {
             //Hay que pasarle el usuario, las habilidades,...
             allSkills = await Skill.find();
             console.log('Usuario en sesión:', req.session.user);
-            userSkills = await UserSkill.find({user: req.session.user._id});
-            res.render('skills', {user: req.session.user, skills: allSkills});
+            userSkills = await UserSkill.find().exec();
+            res.render('skills', {user: req.session.user, skills: allSkills, userSkills: userSkills});
         } else {
             res.redirect('/users/login')
         }
@@ -136,5 +138,88 @@ exports.deleteSkill = async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).send('Error al eliminar la habilidad');
+    }
+};
+
+exports.viewCompetencia = async(req, res) => {
+    try {
+        const skillID = req.params.skillID;
+        const skill = await Skill.findOne({ _id: skillID}).exec(); //aparezcan los competados y no verificados
+        const userSkills = await UserSkill.find({skill: skillID}).populate('user').exec();
+
+        if (!skill) {
+            return res.status(404).send('Skill no encontrada');
+        }
+
+        res.render('competencia', { skill, userSkills, user: req.session.user });
+    } catch (error) {
+        console.error('Error al renderizar la página de edición:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+}
+
+exports.addEvidence = async(req, res) => {
+    const {skillID, userID, evidence} = req.body;
+    const newUserSkill = new UserSkill({
+        user: userID,
+        skill: skillID,
+        evidence: evidence,
+        completedAt: new Date(),
+        completed: true //se ha completado de momento
+    })
+
+    newUserSkill.save()
+        .then(savedUserSkill => {
+            console.log('UserSkill saved:', savedUserSkill);
+        })
+        .catch(error => {
+            console.error('Error saving UserSkill:', error);
+        });
+}
+
+exports.verifyEvidence = async (req, res) => {
+    const user = req.session.user;
+    const skillID = req.params.skillID;
+    const { userSkillID, approved} = req.body; // Necesitamos saber si es admin o no
+
+    try {
+        const updatedUserSkill = await UserSkill.findByIdAndUpdate(
+            userSkillID,
+            {
+                $push: {
+                    verifications: {
+                        user: user._id,
+                        approved: approved,
+                        verifiedAt: new Date()
+                    },
+                },
+            },
+            { new: true }
+        );
+
+        const approvedCount = updatedUserSkill.verifications.filter(
+            (verification) => verification.approved
+        ).length;
+        if ((user.isAdmin && approved) || approvedCount >= 3){
+            await UserSkill.findByIdAndUpdate(
+                userSkillID,
+                { verified: true },
+                { new: true }
+            );
+            await User.findByIdAndUpdate(
+                user._id,
+                {
+                    $push: { completedSkills: skillID } // Si quieres almacenar más información
+                },
+                { new: true }
+            );
+            res.status(200).send({ success: true, message: "Evidence verified successfully." });
+        } else if (user.isAdmin && !approved){
+            await UserSkill.findByIdAndDelete(userSkillID);
+            res.status(200).send({ success: true, message: "Evidence removed." });
+        }
+    } catch (error) {
+        console.error("Error verifying evidence:", error);
+        res.status(500).send({ success: false, message: "Internal server error." });
     }
 };

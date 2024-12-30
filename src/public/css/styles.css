@@ -242,11 +242,29 @@ footer {
 #competencia-info {
   text-align: center;
   margin-top: 20px;
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 15px; /* Bordes curvos */
+  padding: 20px; /* Espaciado interno */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+  width: 600px; /* Asegura que ocupe todo el ancho disponible */
+  margin-left: auto; /* Centrado en horizontal */
+  margin-right: auto; /* Centrado en horizontal */
 }
 
-#competencia-info img {
+#competencia-icon {
   max-width: 80px;
-  margin: 10px 0;
+  margin: 10px auto; /* Centrado en horizontal con margen arriba y abajo */
+  text-align: center; /* Asegura que el contenido dentro del contenedor esté centrado */
+}
+
+#competencia-icon img {
+  max-width: 100%; /* La imagen no excederá el tamaño del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+#competencia-description {
+  text-align: center;
+  margin-top: 20px;
 }
 
 #tareas-list, #recursos-list {
