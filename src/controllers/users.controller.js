@@ -5,7 +5,7 @@ const User = require('../models/User');
 exports.renderLogin = async (req, res, next) => {
     try {
         if(!req.session.user) {
-            res.render('login');
+            res.render('login', {message: ''});
         } else {
             res.redirect('/skills');
         }
@@ -86,8 +86,13 @@ exports.register = async (req, res) => {
     }
 };
 
-//Logout
+// Logout
 exports.logout = async (req, res) => {
-    req.session.destroy();
-    res.redirect('/users/login');
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).send('Error al cerrar sesión');
+        }
+        // Pasar mensaje a la vista
+        res.render('login', {message: 'Sesión cerrada correctamente'});
+    });
 }
