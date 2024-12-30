@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= skill.text %> - Skill Details</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+
+        window.onload = async function () {
+            const checkboxes = document.querySelectorAll('#tareas-list .task-checkbox');
+            checkboxes.forEach(checkbox => checkbox.addEventListener('change', checkCompletion));
+            document.getElementById('submit_button').addEventListener('click', submitted);
+        }
+
+        function checkCompletion() {
+            const checkboxes = document.querySelectorAll('#tareas-list .task-checkbox');
+            const allCompleted = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            if (allCompleted) {
+                document.getElementById('evidence-form').style.display = 'block';
+                launchConfetti();
+            } else {
+                document.getElementById('evidence-form').style.display = 'none';
+            }
+        }
+
+        function launchConfetti() {
+            const confettiCanvas = document.getElementById('confetti-canvas');
+
+            confettiCanvas.width = window.innerWidth;
+            confettiCanvas.height = window.innerHeight;
+
+            confetti({
+                particleCount: 200,
+                angle: 90,
+                spread: 360,
+                origin: { x: 0.5, y: 0.5 },
+                colors: ['#ffffff', '#dd2222', '#2c7714'],
+                scalar: 1.2
+            });
+        }
+
+        function submitted() {
+            var inputValue = document.getElementById('submit_content').value;
+
+            if (inputValue.trim() !== '') {
+                showMessage('Evidencia enviada correctamente.', 'green')
+                document.getElementById('submit_content').value = '';
+                const skillID = "<%= skill._id %>";
+                const userID = "<%= user._id %>";
+                addEvidence(skillID , userID, inputValue);
+            } else {
+                showMessage('Por favor, ingresa una URL, explicación o evidencia válida.', 'red')
+            }
+        }
+
+        function addEvidence(skillID, userID, evidence){
+            fetch('/skills/electronics/submit-evidence', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    skillID: skillID,
+                    userID: userID,
+                    evidence: evidence
+                }),
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+            location.reload();//actualizar
+        }
+
+        function showMessage(text, colour){
+            let message = document.getElementById('success-message');
+            message.textContent = text;
+            message.style.backgroundColor = colour;
+            message.style.color = "white";
+            message.classList.add('show');
+
+            setTimeout(function() {
+                message.classList.remove('show');
+            }, 3000);
+        }
+
+        function verifyUserSkill(userSkillID, approved){
+            const skillID = "<%= skill._id %>";
+            fetch(`/skills/electronics/${skillID}/verify`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userSkillID: userSkillID,
+                    approved: approved,
+                }),
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+            location.reload();//actualizar
+        }
+
+    </script>
+</head>
+<body>
+<h1 id="competencia-title"><%= skill.text %></h1>
+<div id="competencia-icon">
+    <% if (skill.icon) { %>
+        <img src="/electronics/icons/icon<%= skill.id %>.svg" width="100" height="100" alt="Icono de habilidad">
+    <% } else { %>
+        <p>No hay icono disponible</p>
+    <% } %>
+</div>
+<p id="competencia-description"><%= skill.description %></p>
+<div id="competencia-info">
+
+    <h2>Tasks to complete</h2>
+    <ul id="tareas-list">
+        <% skill.tasks.forEach(task => { %>
+            <li>
+                <input type="checkbox" class="task-checkbox" id="task-<%= task %>">
+                <label for="task-<%= task %>"><%= task %></label>
+            </li>
+        <% }) %>
+    </ul>
+
+    <!-- Formulario de evidencia que aparecerá al completar las tareas -->
+    <div id="evidence-form" style="display: none;">
+        <h2>Provided evidences</h2>
+        <input type="url" id="submit_content" placeholder="Enter a URL, explanation or evidence for this skill." required>
+        <button id="submit_button"> Submit Evidence</button>
+        <div id="success-message">¡Evidencia enviada correctamente!</div>
+    </div>
+
+    <h2>Resources</h2>
+    <ul id="recursos-list">
+        <% skill.resources.forEach(resource => { %>
+            <li>◉ <%= resource %> \n
+            </li>
+        <% }) %>
+    </ul>
+</div>
+
+<!-- Elemento para la animación de confeti -->
+<canvas id="confetti-canvas"></canvas>
+<% userIsVerified = userSkills.filter(userSkill => userSkill.user._id.toString() === user._id.toString() && userSkill.verified === true) %>
+<% if (user.isAdmin || userIsVerified.length > 0) { %>
+    <%evidences = userSkills.filter(userSkill => userSkill.verified === false && userSkill.completed === true)%>
+    <div style="text-align: center;">
+        <h2>Unverified Evidence Submissions</h2>
+        <table id="table-evidences">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Evidence</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% evidences.forEach(userSkill => { %>
+                <tr>
+                    <td><%= userSkill.user.username%></td>
+                    <td><%= userSkill.evidence %></td>
+                    <td>
+                        <button onclick="verifyUserSkill('<%= userSkill._id %>', true)" class="verify-button">Verify</button>
+                        <button onclick="verifyUserSkill('<%= userSkill._id %>', false)" class="reject-button">Reject</button>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+<% } %>
+
+</body>
+</html>
