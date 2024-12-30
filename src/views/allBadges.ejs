@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Skill Tree : Manage Badges</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <span>¡Bienvenido, <%= user.username %> ! | </span>
+        <span>Árbol de habilidades:</span>
+
+        <a href="/skills">Electronics</a>
+        <span> | </span>
+        <a href="/leaderboard">Clasificación</a>
+        <span> | </span>
+        <a href="/about">Acerca de</a>
+        <span> | </span>
+        <a href="/users/logout">Cerrar sesión</a>
+        <% if (user.isAdmin) { %>
+            <span> | </span>
+
+            <div class="dropdown">
+                <a href="#" id="admin-link">Panel de administración</a>
+                <div class="dropdown-menu" id="admin-menu">
+                    <a href="/admin/manage-badges">Manage Badges</a>
+                    <a href="/admin/users">Manage Users</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</header>
+
+<h1>Gestión de Insignias</h1>
+
+<% if (user.isAdmin) { %>
+    <button onclick="window.location.href='/admin/badges/create'" class="btn btn-add-badge">Añadir Nueva Insignia</button>
+<% } %>
+
+<table class="badges-table">
+    <thead>
+    <tr>
+        <th>Insignia</th>
+        <th>Puntuación Mínima (Bitpoints)</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% badges.forEach(badge => { %>
+        <tr>
+            <td><%- badge.name %></td>
+            <td><%- badge.bitpoints_min %></td>
+            <td>
+                <% if (user.isAdmin) { %>
+                    <a href="/admin/badges/edit/<%= badge.id %>" class="btn btn-edit">Editar</a>
+                <% } %>
+            </td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+
+</body>
+</html>

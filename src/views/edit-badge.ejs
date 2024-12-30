@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Skill Tree : Edit Badge</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <span>¡Bienvenido, <%= user.username %> ! | </span>
+        <span>Árbol de habilidades:</span>
+
+        <a href="/skills">Electronics</a>
+        <span> | </span>
+        <a href="/leaderboard">Clasificación</a>
+        <span> | </span>
+        <a href="/about">Acerca de</a>
+        <span> | </span>
+        <a href="/users/logout">Cerrar sesión</a>
+        <% if (user.isAdmin) { %>
+            <span> | </span>
+
+            <div class="dropdown">
+                <a href="#" id="admin-link">Panel de administración</a>
+                <div class="dropdown-menu" id="admin-menu">
+                    <a href="/admin/manage-badges">Manage Badges</a>
+                    <a href="/admin/users">Manage Users</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</header>
+
+<h1>Editar Insignia</h1>
+
+<% if (badge) { %>
+    <form action="/admin/badges/edit/<%= badge.id %>" method="POST">
+        <div class="form-group">
+            <label for="name">Nombre de la Insignia</label>
+            <input type="text" id="name" name="name" value="<%= badge.name %>" required />
+        </div>
+        <div class="form-group">
+            <label for="bitpoints_min">Puntuación Mínima (Bitpoints)</label>
+            <input type="number" id="bitpoints_min" name="bitpoints_min" value="<%= badge.bitpoints_min %>" required />
+        </div>
+        <button type="submit" class="btn btn-save">Guardar cambios</button>
+    </form>
+<% } else { %>
+    <p>La insignia no existe o no se pudo encontrar. <a href="/admin/manage-badges">Volver al listado de insignias</a>.</p>
+<% } %>
+
+</body>
+</html>
