@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column
+        }
+        .register-container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .register-container h1 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .register-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .register-container input[type="text"],
+        .register-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .register-container button:hover {
+            background-color: #0056b3;
+        }
+        .register-container .signup-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        .register-container .signup-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .register-container .signup-link a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: #d32f2f;
+            margin-top: 15px;
+        }
+
+    </style>
+    <script>
+        async function register() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const password2 = document.getElementById('password2').value;
+
+            if(password === password2) {
+                try {
+                    const response = await fetch('/users/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({username, password})
+                    });
+
+                    if (!response.ok) {
+                        const errorMessage = await response.text();
+                        console.log('no redirigir')
+                        showError(errorMessage);
+                    } else {
+                        console.log('redirigir')
+                        window.location.href = '/users/login'
+                    }
+                } catch (error) {
+                    showError(error.message);
+                }
+            } else {
+                showError("The two passwords do not match.")
+            }
+        }
+
+        function showError(message) {
+            const errorElement = document.getElementById('error-message');
+            errorElement.textContent = message;
+        }
+    </script>
+</head>
+<body>
+<!-- Ventana emergente para el mensaje de error -->
+
+<div class="register-container">
+    <h1>Register</h1>
+    <form onsubmit="event.preventDefault(); register();">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <label for="password">Confirm your password</label>
+        <input type="password" id="password2" name="password2" placeholder="Repeat your password" required>
+
+
+        <button type="submit">Register</button>
+    </form>
+    <div class="login-link">
+        <p>Have an account? <a href="/users/login">Log in</a></p>
+    </div>
+</div>
+
+<div class="error-message" id="error-message" ></div>
+</body>
+</html>
