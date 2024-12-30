@@ -121,7 +121,9 @@
             <td>
                 <% if (user.isAdmin) { %>
                     <a href="/admin/badges/edit/<%= badge.id %>" class="btn btn-edit">Edit</a>
-                    <a href="/admin/badges/delete/<%= badge.id %>" class="btn btn-delete">Delete</a>
+                    <form action="/admin/badges/delete/<%= badge.id %>" method="POST">
+                        <button type="submit" class="btn btn-delete" >Delete</button>
+                    </form>
                 <% } %>
             </td>
         </tr>

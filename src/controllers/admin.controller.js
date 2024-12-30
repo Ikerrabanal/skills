@@ -59,16 +59,15 @@ exports.viewoneBadge = async (req, res, next) => {
 
 exports.editBadges = async (req, res) => {
     badgeId = req.params.id;
-    const { badgeName, badgeName2, badgeMin, badgeMax, badge_url } = req.body;
+    const { name, range, bitpoints_min, bitpoints_max, image_url } = req.body;
     try {
-        console.log(badgeName, badgeMin, badgeMax, badge_url);
         const updateBadge = await Badge.findOneAndUpdate(
             {_id: badgeId},
             {
-                name: badgeName,
-                bitpoints_min: badgeMin,
-                bitpoints_max: badgeMax,
-                image_url: badge_url
+                name: name,
+                bitpoints_min: bitpoints_min,
+                bitpoints_max: bitpoints_max,
+                image_url: image_url
             },
         )
         if (!updateBadge) {
@@ -84,7 +83,8 @@ exports.editBadges = async (req, res) => {
 
 exports.deleteBadges = async (req, res) => {
 
-    const { badgeId } = req.body;
+    const badgeId = req.params.id;
+    console.log(badgeId)
     try {
         const deleteBadge = await Badge.findOneAndDelete(
             {_id: badgeId}
