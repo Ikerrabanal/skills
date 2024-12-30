@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        function showChangePasswordSection(userId) {
+            // Mostrar la sección del formulario
+            document.getElementById('change-password-section').style.display = 'block';
+
+            // Pre-rellenar el campo de User ID
+            document.getElementById('userId').value = userId;
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <span>¡Bienvenido, <%= user.username %> ! | </span>
+        <span>Árbol de habilidades:</span>
+        <a href="/skills">Electronics</a>
+        <span> | </span>
+        <a href="/leaderboard">Clasificación</a>
+        <span> | </span>
+        <a href="/about">Acerca de</a>
+        <span> | </span>
+        <a href="/users/logout">Cerrar sesión</a>
+        <% if (user.isAdmin) { %>
+            <div class="dropdown">
+                <a href="#" id="admin-link">Panel de administración</a>
+                <div class="dropdown-menu" id="admin-menu">
+                    <a href="/admin/manage-badges">Manage Badges</a>
+                    <a href="/admin/manage-users">Manage Users</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</header>
+
+<h1>Manage Users</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Admin</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% users.forEach(user => { %>
+        <tr>
+            <td><%= user.username %></td>
+            <td><%= user.admin ? 'Yes' : 'No' %></td>
+            <td>
+                <button onclick="showChangePasswordSection('<%= user.username %>')">Change Password</button>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+<!-- Sección de cambiar contraseña -->
+<div id="change-password-section" style="display: none; margin-top: 20px;">
+    <h2>Change Password</h2>
+    <form action="/admin/change-password" method="POST">
+        <input type="hidden" name="_method" value="PATCH">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" readonly required>
+        <label for="password">New Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Change Password</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -81,6 +81,35 @@
     </script>
 </head>
 <body>
+
+<header>
+    <div class="navbar">
+        <span>¡Bienvenido, <%= user.username %> ! | </span>
+        <span>Árbol de habilidades:</span>
+
+        <a href="/skills">Electronics</a>
+        <span> | </span>
+        <a href="/leaderboard">Clasificación</a>
+        <span> | </span>
+        <a href="/about">Acerca de</a>
+        <span> | </span>
+        <a href="/users/logout">Cerrar sesión</a>
+        <% if (user.isAdmin) { %>
+            <span> | </span>
+
+            <div class="dropdown">
+                <a href="#" id="admin-link">Panel de administración</a>
+                <div class="dropdown-menu" id="admin-menu">
+                    <a href="/admin/manage-badges">Manage Badges</a>
+                    <a href="/admin/users">Manage Users</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</header>
+
+
+
 <h1>ELECTRONICS</h1>
 
 <% if (user.isAdmin) { %>
@@ -106,6 +135,7 @@
         </div>
     <% }); %>
 </div>
+<div id="description-message"></div>
 
 <div id="description-message"></div>
 </body>

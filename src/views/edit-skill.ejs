@@ -7,14 +7,30 @@
     <link rel="stylesheet" href="/css/style-edit.css">
 </head>
 <body>
+
 <header>
     <div class="navbar">
-        <span>¡Bienvenido! | </span>
-        <a href="/skills">Árbol de habilidades</a>
-        <span>(<%= skill.set || 0 %>)</span>
-        <a href="/leaderboard">Clasificación</a> |
-        <a href="/about">Acerca de</a> |
-        <a href="/logout">Cerrar sesión</a>
+        <span>¡Bienvenido, <%=user.username%> ! | </span>
+        <span>Árbol de habilidades:</span>
+
+        <a href="/skills">Electronics</a>
+        <span> | </span>
+        <a href="/leaderboard">Clasificación</a>
+        <span> | </span>
+        <a href="/about">Acerca de</a>
+        <span> | </span>
+        <a href="/users/logout">Cerrar sesión</a>
+        <% if (user.isAdmin) { %>
+            <span> | </span>
+
+            <div class="dropdown">
+                <a href="#" id="admin-link">Panel de administración</a>
+                <div class="dropdown-menu" id="admin-menu">
+                    <a href="/admin/manage-badges">Manage Badges</a>
+                    <a href="/admin/users">Manage Users</a>
+                </div>
+            </div>
+        <% } %>
     </div>
 </header>
 

@@ -22,7 +22,7 @@ exports.renderIndex = async (req, res, next) => {
     }
 };
 
-exports.renderSkill = async (req, res, next) => {
+exports.renderEditSkill = async (req, res, next) => {
     const tree = req.params.skillTree;
     const skillId = parseInt(req.params.id, 10);
     const skill = await Skill.findOne({ id: skillId });
@@ -30,26 +30,26 @@ exports.renderSkill = async (req, res, next) => {
         return res.status(404).send('Skill not found');
     }
 
-    res.render('edit-skill', { skill: skill, tree: tree });
+    res.render('edit-skill', {user: req.session.user, skill: skill, tree: tree });
 };
 
 
 
-exports.renderEditSkill = async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const skill = await Skill.findOne({ id }).exec();
-        if (!skill) {
-            return res.status(404).send('Skill no encontrada');
-        }
-
-        res.render('edit-skill', { skill });
-    } catch (error) {
-        console.error('Error al renderizar la página de edición:', error);
-        res.status(500).send('Error interno del servidor');
-    }
-};
+//exports.renderEditSkill = async (req, res) => {
+//  try {
+//      const { id } = req.params;
+//
+//      const skill = await Skill.findOne({ id }).exec();
+////      if (!skill) {
+//        return res.status(404).send('Skill no encontrada');
+//      }
+//
+//      res.render('edit-skill', { skill });
+//  } catch (error) {
+//      console.error('Error al renderizar la página de edición:', error);
+//      res.status(500).send('Error interno del servidor');
+//  }
+//};
 
 exports.updateSkill = async (req, res) => {
     try {
@@ -91,7 +91,7 @@ exports.updateSkill = async (req, res) => {
 
 exports.renderAddSkill = (req, res) => {
     const { skillTree } = req.params;
-    res.render('add-skill', { skillTree });
+    res.render('add-skill', {user: req.session.user, skillTree });
 };
 
 exports.saveNewSkill = async (req, res) => {

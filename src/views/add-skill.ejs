@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Nueva Skill</title>
+    <link rel="stylesheet" href="/css/style-edit.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <span>¡Bienvenido, <%=user.username%> ! | </span>
+        <span>Árbol de habilidades:</span>
+
+        <a href="/skills">Electronics</a>
+        <span> | </span>
+        <a href="/leaderboard">Clasificación</a>
+        <span> | </span>
+        <a href="/about">Acerca de</a>
+        <span> | </span>
+        <a href="/users/logout">Cerrar sesión</a>
+        <% if (user.isAdmin) { %>
+            <span> | </span>
+
+            <div class="dropdown">
+                <a href="#" id="admin-link">Panel de administración</a>
+                <div class="dropdown-menu" id="admin-menu">
+                    <a href="/admin/manage-badges">Manage Badges</a>
+                    <a href="/admin/users">Manage Users</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</header>
+<main class="edit-skill-container">
+    <h1>Añadir nueva competencia: <span id="skill-title"></span></h1>
+    <h2>ELECTRÓNICA</h2>
+    <form method="POST" action="/skills/<%= skillTree %>/add">
+        <div class="form-group">
+            <label for="text">Título de la competencia:</label>
+            <input type="text" id="text" name="text" placeholder="Título de la habilidad" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Descripción de la habilidad" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="tasks">Tareas a completar (una por línea):</label>
+            <textarea id="tasks" name="tasks" rows="3" placeholder="Tareas de la habilidad"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="resources">Recursos (uno por línea):</label>
+            <textarea id="resources" name="resources" rows="3" placeholder="Recursos relacionados"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="score">Puntuación:</label>
+            <input type="number" id="score" name="score" min="1" max="100" placeholder="1" value="1">
+        </div>
+        <div class="form-group">
+            <label for="icon">Subir Icono (30x30 png):</label>
+            <input type="file" id="icon" name="icon" accept="image/png">
+        </div>
+        <button type="submit" class="btn btn-save">Guardar</button>
+        <button type="button" class="btn btn-cancel-red" onclick="window.location.href='/skills'">Cancelar</button>
+    </form>
+</main>
+</body>
+</html>

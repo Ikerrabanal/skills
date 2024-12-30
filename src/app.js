@@ -12,7 +12,7 @@ const s = require('./config/addData');
 
 connectDB();
 s.addSkills();
-
+s.addBadges();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
