@@ -6,16 +6,56 @@ body {
 }
 
 .navbar {
-    background-color: #f4f4f4;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end; /* Posiciona el contenido a la derecha */
+    align-items: center;
+    background-color: #f4e187; /* Color similar al fondo de la barra */
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+    width: auto; /* La barra se ajusta al contenido */
+    position: absolute; /* Fija la posición en la esquina superior derecha */
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar span, .navbar a {
+    margin-right: 10px;
+    color: #000; /* Texto en negro */
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
 }
 
 .navbar a {
-    text-decoration: none;
-    color: #007BFF;
-    margin: 0 5px;
+    font-weight: bold;
 }
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Hace que el menú se despliegue alineado a la derecha */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
 
 .edit-skill-container {
     max-width: 800px;

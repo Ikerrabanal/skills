@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const skillsController = require('../controllers/skills.controller');
-const userController = require('../controllers/users.controller');
 
 
 /* GET home page. */
