@@ -1,4 +1,5 @@
 const express = require('express');
+const app = express();
 const path = require('path');
 const session = require('express-session');
 
@@ -12,7 +13,6 @@ const s = require('./config/addData');
 connectDB();
 s.addSkills();
 
-const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

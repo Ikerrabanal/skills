@@ -7,9 +7,12 @@
     <list default="true" id="9807d56a-ed1e-40fc-b40b-0ee0dc499504" name="Changes" comment="Falta mejorar un poco el que se ponga en verde el hexagono y revisar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/skills.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/skills.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/style-edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/style-edit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/skills.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/skills.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/skills.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/skills.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/edit-skill.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/edit-skill.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +43,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Ikerrabanal/skills&quot;,
-    &quot;accountId&quot;: &quot;1402fabd-8b89-4b19-9782-b5158eaeca79&quot;
+    &quot;url&quot;: &quot;https://github.com/Ikerrabanal/skills.git&quot;,
+    &quot;accountId&quot;: &quot;84ba6617-bb65-4db6-bbbf-347042f47986&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -60,7 +63,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#3 on Unai2",
+    "git-widget-placeholder": "Unai3",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ehu/IdeaProjects/skills/public/electronics",
     "node.js.detected.package.eslint": "true",
@@ -146,8 +149,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>

@@ -8,9 +8,11 @@ const userController = require('../controllers/users.controller');
 router.get('/', skillsController.renderIndex);
 
 // Mostrar edición
-router.get('/:skillTree/edit/:id', skillsController.renderSkill);
+router.get('/:skillTree/edit/:id', skillsController.renderEditSkill);
 
-router.post('/:skillTree/edit/:id', skillsController.editSkill);
+router.post('/:skillTree/edit/:id', skillsController.updateSkill);
+
+//Añadir una skill
 
 const isAdmin = (req, res, next) => {
     if (req.session.user && req.session.user.isAdmin) {
@@ -21,7 +23,9 @@ const isAdmin = (req, res, next) => {
 };
 
 router.get('/:skillTree/add', isAdmin, skillsController.renderAddSkill);
-
 router.post('/:skillTree/add', isAdmin, skillsController.saveNewSkill);
+
+//eliminar skill
+router.get('/delete/:id', skillsController.deleteSkill);
 
 module.exports = router;

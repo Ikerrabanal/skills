@@ -78,6 +78,11 @@ textarea {
     color: white;
 }
 
+.btn-cancel-red {
+    background-color: #dc3545;
+    color: white;
+}
+
 .btn-delete {
     background-color: #dc3545;
     color: white;

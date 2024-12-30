@@ -349,15 +349,39 @@ footer {
 }
 
 .btn-accept:hover {
-  background-color: #45a049; /* Verde más oscuro al pasar el ratón */
+  background-color: #45a049;
 }
 
 /* Estilo específico para el botón "Denegar" */
 .btn-decline {
-  background-color: #f44336; /* Rojo */
+  background-color: #f44336;
   color: white;
 }
 
 .btn-decline:hover {
-  background-color: #d32f2f; /* Rojo más oscuro al pasar el ratón */
+  background-color: #d32f2f;
+}
+
+.btn.btn-add-skill {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn.btn-add-skill:hover {
+  background-color: #45a049;
+}
+
+.btn.btn-add-skill:active {
+  background-color: #3e8e41;
+  transform: scale(0.98);
+}
+
+.btn-add-skill {
+  margin-left: 85%; /* O puedes usar un valor en px o % */
 }

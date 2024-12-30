@@ -21,8 +21,8 @@
 <main class="edit-skill-container">
     <h1>Editar Competencia: <span id="skill-title"><%= skill.text %></span></h1>
     <h2>ELECTRÓNICA (<%= skill.set || 0 %> habilidades)</h2>
-    <form id="edit-skill-form" method="POST" action="/skills/electronics/edit/<%= skill.id %>" enctype="multipart/form-data">
-        <div class="form-group">
+    <form id="edit-skill-form" method="POST" action="/skills/electronics/edit/<%= skill.id %>">
+    <div class="form-group">
             <label>Icono de la habilidad:</label>
             <div id="skill-icon-container">
                 <% if (skill.icon) { %>
@@ -47,15 +47,15 @@
         </div>
         <div class="form-group">
             <label for="tasks">Tareas a completar (una por línea):</label>
-            <textarea id="tasks" name="tasks" rows="3" placeholder="Tareas de la competencia"><%= skill.tasks.join('\n') %></textarea>
+            <textarea id="tasks" name="tasks" rows="3" placeholder="Tareas de la competencia"><%= skill.tasks ? skill.tasks.join('\n') : '' %></textarea>
         </div>
         <div class="form-group">
             <label for="resources">Recursos (uno por línea):</label>
-            <textarea id="resources" name="resources" rows="3" placeholder="Recursos de la competencia"><%= skill.resources.join('\n') %></textarea>
+            <textarea id="resources" name="resources" rows="3" placeholder="Recursos de la competencia"><%= skill.resources ? skill.resources.join('\n') : '' %></textarea>
         </div>
         <div class="form-group">
             <label for="skill-score">Puntuación de la habilidad:</label>
-            <input type="number" id="skill-score" name="score" min="1" max="100" value="<%= skill.score %>">
+            <input type="number" id="score" name="score" min="1" max="100" value="<%= skill.score || 1 %>" required>
         </div>
         <div class="form-group">
             <label for="icon">Subir Icono (30x30 png):</label>
@@ -64,7 +64,7 @@
         <div class="buttons">
             <button type="submit" class="btn btn-save">Guardar</button>
             <button type="button" class="btn btn-cancel" onclick="window.location.href='/skills'">Cancelar</button>
-            <button type="button" class="btn btn-delete" onclick="window.location.href='/delete-skill?id=<%= skill.id %>'">Eliminar Habilidad</button>
+            <button type="button" class="btn btn-delete" onclick="window.location.href='/skills/delete/<%= skill.id %>'">Eliminar Habilidad</button>
         </div>
     </form>
 </main>
